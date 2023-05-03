@@ -1,0 +1,256 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@mail.com",
+      "password": "admin"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Random Logofolio Update v4 - 2023",
+      "image": "https://cdn.dribbble.com/userupload/6689959/file/original-ff36e3265e4b95a3095eb4e82bfea99d.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype" : "PRO",
+      "description" : "Random logos from the portfolio collection 04. See below for the availability of these Which of these logos stands out the most to you? Have a lovely day everyone!"
+    },
+    {
+      "id": 2,
+      "name": "CBDC - Website for Digital Currency",
+      "image": "https://cdn.dribbble.com/userupload/6692110/file/original-69c2faaed142c489e738e529f554596a.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Please check out the website created by our team representing CBDC and some use cases for it. We believe that there are a lot of opportunities to use such currencies, so we're proud to participate in such a project."
+    },
+    {
+      "id": 3,
+      "name": "Holy Dog Logo",
+      "image": "https://cdn.dribbble.com/userupload/6682362/file/original-96f71634e6b5b9784e12c642e7c63949.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "This logo will be sold once. Copyright transfers to the buyer. Professional customization is included in the price. For custom made logo projects, feel free to send an email to contact@unomdesign.com"
+    },
+    {
+      "id": 4,
+      "name": "Wander Branding",
+      "image": "https://cdn.dribbble.com/userupload/6516209/file/original-bb3026b8ab052a26a8bedb6758b78e7b.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description" : "Please check out the website created by our team representing CBDC and some use cases for it. We believe that there are a lot of opportunities to use such currencies, so we're proud to participate in such a project."
+    },
+    {
+      "id": 5,
+      "name": "techduck",
+      "image": "https://cdn.dribbble.com/userupload/6689654/file/original-33b04b6a288eb6fc0c2280d78081180f.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "This is how a techduck logo looks like, modern, simple and cute with a cursive line drawing the duck shape and a pixel eye for a tech touch."
+    },
+    {
+      "id": 6,
+      "name": "W for Wegrow #36daysoftype",
+      "image": "https://cdn.dribbble.com/userupload/6681695/file/original-701da6388548c49aa7f2ffe312c53d3b.jpg?compress=1&crop=330x248-6337x4752&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Introducing the letter W for #36daysoftype, inspired by growth & evolution! The concept features an abstract W crafted with circles of varying thickness, growing bolder from left to right to evoke a sense of movement & progression. What are your thoughts on this design?"
+    },
+    {
+      "id": 7,
+      "name": "Voldex — Logo Design",
+      "image": "https://cdn.dribbble.com/userupload/6690683/file/original-afb0f0a2ffc637f8d05e36cc320afbf4.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Voldex is one of the world's top UGC game companies, creating games within Minecraft and Roblox for millions of players since 2015."
+    },
+    {
+      "id": 8,
+      "name": "Seven Summits Irish Whiskey (Logo)",
+      "image": "https://cdn.dribbble.com/userupload/6693035/file/original-4632265f05d8bc9c8d379a245829407c.png?compress=1&crop=0x0-3333x2500&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Part of one of the most exciting spirits packaging projects I worked on to date. It was created to celebrate the ascension of the seven Summits by Tom Cleary — the youngest mountaineer from Ireland who eventually will reach this record."
+    },
+    {
+      "id": 9,
+      "name": "Mobile Banking App",
+      "image": "https://cdn.dribbble.com/userupload/6679514/file/original-0de5aa877538bb7c6ee1a775e138bb85.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "With this latest design, we are transforming the banking experience into something that feels less like a chore and more like a fun and accessible tool for managing your finances. Our task was to design a banking app that felt playful and inviting while also being functional. We began with a dark background that added depth and helped focus the user's attention on important information. But we didn't want the app to feel too serious or heavy, so we added pops of bright colors throughout the design to add interest and guide the user's eye."
+    },
+    {
+      "id": 10,
+      "name": "Bunny Branding",
+      "image": "https://cdn.dribbble.com/userupload/6270514/file/still-637b09297a467154be9a29b8990ff7a1.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "The company had a request to redesign individual pages and interface elements based on the draft they had already prepared. In addition, our team also made a marketing website that talks about the application, the service, and its features."
+    },
+    {
+      "id": 11,
+      "name": "Wild West",
+      "image": "https://cdn.dribbble.com/userupload/6692871/file/original-0812166aca41081c4a3b5b5fddf79391.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Day 23 of the 36 Days of Type challenge"
+    },
+    {
+      "id": 12,
+      "name": "Picflow - Logo Design",
+      "image": "https://cdn.dribbble.com/userupload/6677129/file/original-1c00180d1ea22d09ecfc8ef0c3e4ca16.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Here is a logo from archives that I created two years ago for Picflow, a web application for professional photographers. Over time, I have posted several concepts from this project, but I did not find time then to post the approved one. So I decided to share it with you today. The logo represents a letter P created by a camera shutter."
+    },
+    {
+      "id": 13,
+      "name": "Logo Concept: Target + House / V1",
+      "image": "https://cdn.dribbble.com/userupload/6690542/file/original-31e66029d61e6b9ef2eeabd7e1082c7d.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "The company had a request to redesign individual pages and interface elements based on the draft they had already prepared. In addition, our team also made a marketing website that talks about the application, the service, and its features."
+    },
+    {
+      "id": 14,
+      "name": "Wander",
+      "image": "https://cdn.dribbble.com/users/37585/screenshots/21349637/9844eeb4-a946-4873-afa9-ff5cc52a8cde_4x.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Wander – an app for travelers and adventurers."
+    },
+    {
+      "id": 15,
+      "name": "ThoughtSpot - Search Query Exploration",
+      "image": "https://cdn.dribbble.com/userupload/6682595/file/original-7d38ca824bef1f871bca6213caeacc0b.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "ThoughtSpot is a business intelligence and analytics platform that provides a search-driven approach to data exploration and analysis. It allows users to search and analyze data across multiple sources using natural language queries, making it easy for business users to derive insights from large and complex datasets without requiring advanced technical skills."
+    },
+    {
+      "id": 16,
+      "name": "Kalifornia Frenchies Logo Design",
+      "image": "https://cdn.dribbble.com/userupload/6687409/file/original-1dd1af271518fc63e9ec85adcf070fc3.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Here is the logo design for Kalifornia Frenchies which is a certificated breeder in California. This is how it looks when a royal typographic logotype meets a frenchie. I hope you like it."
+    },
+    {
+      "id": 17,
+      "name": "DASH Cryptowallet: Exchange & Statistics - Part 3/6",
+      "image": "https://cdn.dribbble.com/userupload/6672167/file/original-a64e4dad401faeeece826ce2e033b24e.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "The DASH e-wallet app manages easily, securely, and quickly all fiat and crypto funds. With just a swipe, users can switch between accounts and currencies, get real-time balance updates, and gain clear insights into their expenditures and savings."
+    },
+    {
+      "id": 18,
+      "name": "Madfullness Man ✦ Symbol",
+      "image": "https://cdn.dribbble.com/userupload/6676055/file/original-a437dfab3f3df2cd0cbd3b4e91a95f65.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Concept using two dimensions of imagery: two person open eachother head and both together shape someones head - I hope you like it!"
+    },
+    {
+      "id": 19,
+      "name": "[B][P] 0 → 1",
+      "image": "https://cdn.dribbble.com/userupload/6642824/file/original-b534d157a3c53b8f7573aa07a927f141.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Here is a logo from archives that I created two years ago for Picflow, a web application for professional photographers. Over time, I have posted several concepts from this project, but I did not find time then to post the approved one. So I decided to share it with you today. The logo represents a letter P created by a camera shutter."
+    },
+    {
+      "id": 20,
+      "name": "Q",
+      "image": "https://cdn.dribbble.com/userupload/6679074/file/original-476b7c18ed71fb465fb48d0a2e3f39a5.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Q mark for 36DaysofType."
+    },
+    {
+      "id": 21,
+      "name": "InvoiceMaker - Mobile App Design",
+      "image": "https://cdn.dribbble.com/userupload/6680115/file/original-581795018b3f69260dad99de8698a3e4.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Introducing our new invoice generation application - InvoiceMaker! With QuickInvoice, creating professional and accurate invoices has never been easier. Our user-friendly interface allows you to generate invoices in just a few clicks, saving you time and reducing errors."
+    },
+    {
+      "id": 22,
+      "name": "LIV — Visual Identity",
+      "image": "https://cdn.dribbble.com/userupload/6546242/file/original-3c98b8c622006da84422cfa628985c18.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "LIV, a company committed to enhancing living experiences, approached us to help create a visual identity that truly captured their vision. With their tagline Home is where the heart is and we are here to enhance, LIV's goal is to differentiate manager's properties and transform them into unforgettable communities that offer unique experiences."
+    },
+    {
+      "id": 23,
+      "name": "W for wegrow #36daysoftype",
+      "image": "https://cdn.dribbble.com/userupload/6682047/file/original-51db0fcf269411a5b82c6940cfb1c8e0.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Introducing the letter W for #36daysoftype, inspired by growth & evolution! The concept features an abstract W crafted with circles of varying thickness, growing bolder from left to right to evoke a sense of movement & progression. What are your thoughts on this design? 💭✨"
+    },
+    {
+      "id": 24,
+      "name": "Floral Dove",
+      "image": "https://cdn.dribbble.com/userupload/6673847/file/original-3e349c10b58332b6175110d31f55a52a.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "The company had a request to redesign individual pages and interface elements based on the draft they had already prepared. In addition, our team also made a marketing website that talks about the application, the service, and its features."
+    },
+    {
+      "id": 25,
+      "name": "Crypto Trading Mobile App",
+      "image": "https://cdn.dribbble.com/userupload/6678984/file/original-89ce01fd4a9402d550d2ad08b63c8f4e.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "In the early days of cryptocurrency, buying and selling digital assets was a complex process reserved for only the most tech-savvy investors. But as the industry continued to evolve, a new wave of users emerged, eager to take advantage of the opportunities presented by this new market. "
+    },
+    {
+      "id": 26,
+      "name": "Gargoyle Guardian Logo",
+      "image": "https://cdn.dribbble.com/userupload/6685702/file/original-b9bb0ce91632f6788d34ac244d3496f3.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "The Gargoyle Guardian logo features a bold and imposing gargoyle muzzle, with an intense gaze that conveys a sense of vigilance and protection. This minimalist design is straightforward and powerful, making it an excellent choice for a company or brand seeking to communicate reliability and security. -------------------✉️✉️✉️"
+    },
+    {
+      "id": 27,
+      "name": "Personal Finance Apps UI",
+      "image": "https://cdn.dribbble.com/userupload/6682775/file/original-728f00b1bead8a5e4ba783086e1c277c.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "In our Personal Finance apps, users can set up and track their monthly expenses and income, create budgets for different categories of spending, and monitor their progress towards financial goals. Users can set up automatic bill payments and receive reminders for upcoming bills to avoid late fees."
+    },
+    {
+      "id": 28,
+      "name": "Outer Studio Portfolio Website",
+      "image": "https://cdn.dribbble.com/userupload/6660970/file/original-2f4937ec82d3a26c2216e0fb44b4869e.jpg?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "Proud to unveil our new website! We've focused on delivering a clean, user-centric design that highlights our projects and offers a seamless browsing experience. Take a look and share your feedback!"
+    },
+    {
+      "id": 29,
+      "name": "Faze Logo",
+      "image": "https://cdn.dribbble.com/users/1071652/screenshots/21340079/840077e2-aaff-4d69-ae04-f998be16a661_4x.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Faze Clan logo refresh -------------------- 🚀 Let's create something big together! 🚀"
+    },
+    {
+      "id": 30,
+      "name": "Birds | Design Exploration",
+      "image": "https://cdn.dribbble.com/userupload/6688023/file/original-dfbd81e03e9713ccf3864eb578380fda.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "A few more birds I wanted to share."
+    },
+    {
+      "id": 31,
+      "name": "Pharmaceutical Company - Logo Design Concept",
+      "image": "https://cdn.dribbble.com/userupload/6682323/file/original-741859c69c103ec35244ddd49b3173ab.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Logo Design Concept for Induquimica Pharmaceutical manufacturing company"
+    },
+    {
+      "id": 32,
+      "name": "Save Video",
+      "image": "https://cdn.dribbble.com/userupload/6681019/file/still-cc94d924b7342c5301fc863d3394c37d.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "The company had a request to redesign individual pages and interface elements based on the draft they had already prepared. In addition, our team also made a marketing website that talks about the application, the service, and its features."
+    },
+    {
+      "id": 33,
+      "name": "Sad Cat with Yarn Ball",
+      "image": "https://cdn.dribbble.com/userupload/6692769/file/original-b560a743d4bc340a317e5d0474135c41.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "I actually did a fun tiktok post with this guy. Simple animation and an emotional song. I think you all will enjoy."
+    },
+    {
+      "id": 34,
+      "name": "MacBook Pro Mockups",
+      "image": "https://cdn.dribbble.com/userupload/6684431/file/original-d64272b15b005539b403a4dc050fef40.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "PRO",
+      "description": "New MacBook Pro Mockup in a beautiful environment Available for Photoshop, Sketch, Figma"
+    },
+    {
+      "id": 35,
+      "name": "Stratis UI - AI modals",
+      "image": "https://cdn.dribbble.com/userupload/6685713/file/original-872f3343b6abee29290b8f1ef7b800e2.png?compress=1&resize=400x300&vertical=top",
+      "usertype": "TEAM",
+      "description": "Take advantage of one of the largest UI kits ever assembled. Stratis UI is a Figma UI kit and design system that can be used by individuals to large teams. You can Preview the kit here as well as purchase it from Gumroad here."
+    }
+  ]
+}
