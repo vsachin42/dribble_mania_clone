@@ -1,9 +1,11 @@
 import axios from "axios"
 import { GET_PRODUCT_FALIURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS } from "./actionTypes"
 
-export const Get_Data=(dispatch)=>{
+
+export const Get_Data=(paramsobj)=>(dispatch)=>{
+    console.log(paramsobj)
     dispatch({type:GET_PRODUCT_REQUEST})
-    axios.get("http://localhost:8080/products")
+    axios.get("http://localhost:8080/products",paramsobj)
     .then((res)=>{
     dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data})
     })

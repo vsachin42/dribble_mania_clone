@@ -1,10 +1,41 @@
 import { Box, Button, Heading, Input } from '@chakra-ui/react'
-import { color } from 'framer-motion'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Search2Icon } from '@chakra-ui/icons'
+import { Get_Data } from '../../Redux/ProductReducer/action'
+import { useDispatch } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 
 const Video = () => {
+    const [search,setsearch]=useState("")
+    const dispatch=useDispatch()
+    const [serachparams,setsearchparams]=useSearchParams()
+const handlesearch=(e)=>{
+  setsearch(e.target.value)
+}
+const paramsobj={
+    params:{
+        q:search && search
+    }
+}
 
+let id=useRef()
+useEffect(()=>{
+if(id.current){
+clearTimeout(id.current)
+}
+   id.current=setTimeout(() => {
+        dispatch(Get_Data(paramsobj))
+    }, 1000);
+  
+},[search])
+
+useEffect(()=>{
+ const  param={
+   
+   }
+   search && (param.search=search)
+  setsearchparams(param)
+},[search])
     return (
         <Box position={'relative'}>
             <Box position={'relative'}>
@@ -54,9 +85,9 @@ const Video = () => {
                     Millions of designers and agencies around the world showcase their portfolio work on Dribbble - the home to the world’s best design and creative professionals.
                 </Heading>
             </Box>
-            <Box mt={'1%'} borderRadius={'25px'} width="41%" height="55px" backgroundColor={'white'} opacity= "0.8" marginLeft={'28%'} position={'absolute'} top="54%">
+            <Box mt={'1%'} borderRadius={'25px'} width="41%" height="55px"  opacity= "0.8" marginLeft={'28%'} backgroundColor={'white'} position={'absolute'} top="54%">
 
-                <Input opacity= "0.2" paddingLeft={'60px'} background={'transparent'} fontSize={'20px'} h={'55px'} border={'none'} backgroundColor={'white'} color="gray" borderRadius={'25px'} placeholder='Search...' />
+                <Input value={search} onChange={handlesearch} className='inputbox' opacity= "10" paddingLeft={'60px'} background={'transparent'} fontSize={'20px'} h={'55px'} border={'none'}color="gray.600" borderRadius={'25px'} placeholder='Search...' />
             </Box>
             <Box position={'absolute'} top="59%" fontSize={'18px'} color={'gray.600'} marginLeft={'29.5%'}>
                 <Search2Icon />
@@ -76,3 +107,4 @@ const Video = () => {
 }
 
 export default Video
+
