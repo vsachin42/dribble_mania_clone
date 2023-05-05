@@ -21,3 +21,13 @@ const Productlist = () => {
 }
 
 export default Productlist
+
+
+
+
+
+{/* <Box w={'90%'} margin={'0px auto'} mt={'10%'} display={'grid'} gridTemplateColumns={'auto auto auto auto'} gap={'40px'}>
+{product.map((el)=>{
+  return <ProductCard key={el.id} {...el}/>
+})}
+</Box> */}
