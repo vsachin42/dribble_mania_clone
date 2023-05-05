@@ -1,5 +1,4 @@
-import Navbar from "../Navbar/Navbar";
-
+import Navbar from "../Components/Navbar";
 import {Button,FormControl,Input,Center} from "@chakra-ui/react"
  import axios from "axios"
 
