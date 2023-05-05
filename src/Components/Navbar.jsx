@@ -14,13 +14,13 @@ const Navbar = () => {
             <Link to="/products" style={{textDecoration: "none"}}><h2>Hire Designers</h2></Link>
         </div>
         <div style={{display: "flex", width:"10%", alignItems: "center", justifyContent:"space-between"}}>
-            {/* <Link to="/login"> */}
+            <Link to="/login">
                 <Button bg={'blue.400'}
               color={'white'}
               _hover={{
                 bg: 'blue.500',
               }}>Sign in</Button>
-              {/* </Link> */}
+              </Link>
             <Link to="/signup"><Button>Sign Up</Button></Link>
         </div>
     </div>
