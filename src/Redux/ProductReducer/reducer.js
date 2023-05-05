@@ -7,7 +7,7 @@ const intialstate={
 }
 
 export const reducer=(state=intialstate,{type,payload})=>{
-    console.log(payload)
+ 
   switch(type){
     case GET_PRODUCT_REQUEST:{
         return {
