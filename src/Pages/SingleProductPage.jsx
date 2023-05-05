@@ -49,6 +49,7 @@ Follow
  <Box  >
   <Image width='100%' height='800' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
 </Box>
+{/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolores, culpa reprehenderit fugiat, eveniet vitae, eaque eos libero non temporibus ex eligendi voluptas repellat. Nulla eveniet minus quisquam obcaecati aut. */}
 
  <Box>
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed dolorem autem modi! Dolore, quibusdam nulla veniam vero incidunt, voluptas ut inventore tenetur blanditiis omnis perspiciatis eaque dolorum ducimus placeat doloribus earum fugiat dolor vel, praesentium fugit est. Facilis, ipsum debitis! Veritatis enim saepe ab commodi maxime consectetur corporis hic inventore.
