@@ -6,36 +6,36 @@ import { useDispatch } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
 const Video = () => {
-    const [search,setsearch]=useState("")
-    const dispatch=useDispatch()
-    const [serachparams,setsearchparams]=useSearchParams()
-const handlesearch=(e)=>{
-  setsearch(e.target.value)
-}
-const paramsobj={
-    params:{
-        q:search && search
+    const [search, setsearch] = useState("")
+    const dispatch = useDispatch()
+    const [_, setsearchparams] = useSearchParams()
+    const handlesearch = (e) => {
+        setsearch(e.target.value)
     }
-}
+    const paramsobj = {
+        params: {
+            q: search && search
+        }
+    }
 
-let id=useRef()
-useEffect(()=>{
-if(id.current){
-clearTimeout(id.current)
-}
-   id.current=setTimeout(() => {
-        dispatch(Get_Data(paramsobj))
-    }, 1000);
-  
-},[search])
+    let id = useRef()
+    useEffect(() => {
+        if (id.current) {
+            clearTimeout(id.current)
+        }
+        id.current = setTimeout(() => {
+            dispatch(Get_Data(paramsobj))
+        }, 1000);
 
-useEffect(()=>{
- const  param={
-   
-   }
-   search && (param.search=search)
-  setsearchparams(param)
-},[search])
+    }, [search])
+
+    useEffect(() => {
+        const param = {
+
+        }
+        search && (param.search = search)
+        setsearchparams(param)
+    }, [search])
     return (
         <Box position={'relative'}>
             <Box position={'relative'}>
@@ -85,24 +85,24 @@ useEffect(()=>{
                     Millions of designers and agencies around the world showcase their portfolio work on Dribbble - the home to the world’s best design and creative professionals.
                 </Heading>
             </Box>
-            <Box mt={'1%'} borderRadius={'25px'} width="41%" height="55px"  opacity= "0.8" marginLeft={'28%'} backgroundColor={'white'} position={'absolute'} top="54%">
+            <Box mt={'1%'} borderRadius={'25px'} width="41%" height="55px" opacity="1" marginLeft={'28%'} backgroundColor={'white'} position={'absolute'} top="54%">
 
-                <Input value={search} onChange={handlesearch} className='inputbox' opacity= "10" paddingLeft={'60px'} background={'transparent'} fontSize={'20px'} h={'55px'} border={'none'}color="gray.600" borderRadius={'25px'} placeholder='Search...' />
+                <Input value={search} onChange={handlesearch} className='inputbox' opacity="10" paddingLeft={'60px'} background={'transparent'} fontSize={'20px'} h={'55px'} border={'none'} color="gray.600" borderRadius={'25px'} placeholder='Search...' />
             </Box>
             <Box position={'absolute'} top="59%" fontSize={'18px'} color={'gray.600'} marginLeft={'29.5%'}>
                 <Search2Icon />
             </Box>
-            <Box width={'53%'} marginLeft={'23%'} color={'white'} display={'flex'} justifyContent={'space-between'} top={'75%'} position={'absolute'}>
+            <Box width={'53%'} backgroundColor={'none'} marginLeft={'23%'} color={'white'} display={'flex'} justifyContent={'space-between'} top={'75%'} position={'absolute'}>
                 <Heading fontSize={'15px'} fontWeight={'semibold'} marginTop={'1%'}>Trending searches</Heading>
-                <Button borderRadius={'25px'} h={'30px'} border={'1px solid white'}>landing page</Button>
-                <Button borderRadius={'25px'} h={'30px'} border={'1px solid white'}>ios</Button>
-                <Button borderRadius={'25px'} h={'30px'} border={'1px solid white'}>food</Button>
-                <Button borderRadius={'25px'} h={'30px'} border={'1px solid white'}>landingpage</Button>
-                <Button borderRadius={'25px'} h={'30px'} border={'1px solid white'}>undesign</Button>
-                <Button borderRadius={'25px'} h={'30px'} border={'1px solid white'}>app design</Button>
+                <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>landing page</Button>
+                <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>ios</Button>
+                <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>food</Button>
+                <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>landingpage</Button>
+                <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>undesign</Button>
+                <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>app design</Button>
             </Box>
         </Box>
-      
+
     )
 }
 
