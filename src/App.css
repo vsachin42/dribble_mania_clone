@@ -79,7 +79,7 @@
   -ms-transform: translate(-50%, -50%);
 }
 
-@media (min-width: 700px)  {
+@media (min-width: 300px)  {
   /* CSS rules here will apply to devices with a screen width between 300px and 750px */
   #closebutton{
     display: none;

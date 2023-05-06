@@ -385,154 +385,6 @@ console.log(feedbackdata[0].name)
 
 
 
-              {/* <li style={{ listStyle: 'none', margin: '7px' }} >
-                <Box display='flex' alignItems='center' padding='2'>
-                  <Image marginTop='-9'
-                    borderRadius='full'
-                    boxSize='50px'
-                    src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
-                  />
-                  <Text ml='5'>Dan Abramov
-                    <Text>Good</Text>
-
-                    <Text color='grey'>4 days ago</Text>
-                  </Text>
-
-                </Box>
-
-
-
-
-
-              </li> */}
-
-
-
-{/* 
-              <li style={{ listStyle: 'none', margin: '7px' }} >
-                <Box display='flex' alignItems='center' padding='2'>
-                  <Image marginTop='-9'
-                    borderRadius='full'
-                    boxSize='50px'
-                    src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
-                  />
-                  <Text ml='5'>Dan Abramov
-                    <Text>Good</Text>
-
-                    <Text color='grey'>4 days ago</Text>
-                  </Text>
-
-                </Box>
-
-
-
-
-
-              </li>
-
-
-
-
-              <li style={{ listStyle: 'none', margin: '7px' }} >
-                <Box display='flex' alignItems='center' padding='2'>
-                  <Image marginTop='-9'
-                    borderRadius='full'
-                    boxSize='50px'
-                    src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
-                  />
-                  <Text ml='5'>Dan Abramov
-                    <Text>Good</Text>
-
-                    <Text color='grey'>4 days ago</Text>
-                  </Text>
-
-                </Box>
-
-
-
-
-
-              </li>
-
-
-
-
-              <li style={{ listStyle: 'none', margin: '7px' }} >
-                <Box display='flex' alignItems='center' padding='2'>
-                  <Image marginTop='-9'
-                    borderRadius='full'
-                    boxSize='50px'
-                    src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
-                  />
-                  <Text ml='5'>Dan Abramov
-                    <Text>Good</Text>
-
-                    <Text color='grey'>4 days ago</Text>
-                  </Text>
-
-                </Box>
-
-
-
-
-
-              </li>
-
-
-
-
-              <li style={{ listStyle: 'none', margin: '7px' }} >
-                <Box display='flex' alignItems='center' padding='2'>
-                  <Image marginTop='-9'
-                    borderRadius='full'
-                    boxSize='50px'
-                    src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
-                  />
-                  <Text ml='5'>Dan Abramov
-                    <Text>Good</Text>
-
-                    <Text color='grey'>4 days ago</Text>
-                  </Text>
-
-                </Box>
-
-
-
-
-
-              </li>
-
-
-
-
-              <li style={{ listStyle: 'none', margin: '7px' }} >
-                <Box display='flex' alignItems='center' padding='2'>
-                  <Image marginTop='-9'
-                    borderRadius='full'
-                    boxSize='50px'
-                    src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
-                  />
-                  <Text ml='5'>Dan Abramov
-                    <Text>Good</Text>
-
-                    <Text color='grey'>4 days ago</Text>
-                  </Text>
-
-                </Box>
-
-
-
-
-
-              </li> */}
-
-
 
 
 
@@ -620,69 +472,26 @@ const AlertMessagePresent = () => {
 }
 
 
-// function ToastLiks() {
-//   const toast = useToast()
-//   return (
-//     <Button
-//     color='white' backgroundColor='#E91E63'
-//       onClick={() =>(
-//         likedata,
-//         toast({
-//           title: 'u liked this post.',
-//           description: "data will be added in to u r libary",
-//           status: 'success',
-//           duration: 9000,
-//           isClosable: true,
-//         })
-//       )
-        
-       
-//       }
-//     >
-//       like
-//     </Button>
-//   )
-// }
 
-
-// function ToastLiksPresent() {
-//   const toast = useToast()
-//   return (
-//     <Button
-//     color='white' backgroundColor='#E91E63'
-    
-//       onClick={() =>
-//         toast({
-//           title: 'couldnt like more than ones',
-//           description: "u like this post already.",
-//           status: 'warning',
-//           duration: 9000,
-//           isClosable: true,
-//         })
-//       }
-//     >
-//       Like
-     
-//     </Button>
-//   )
-// }
 
 
 
 const SingleProductPage = () => {
-  // const [datas,setdata]=useState([])
+  const [data,setdata]=useState("")
   const {id}=useParams()
-  // axios.get(`https://dribble-mania.onrender.com/products/${id}`)
-  // .then((res)=>{
-  //   // console.log(res.data,"dataa")
-  //   setdata(res.data)
-  // })
- 
-// console.log(datas,"daaaa")
-  // const [serchparams,setsearchparams]=useSearchParams()
-  
-   
   console.log(id)
+  useEffect(()=>{
+    axios.get(`https://dribble-mania.onrender.com/products/${id}`)
+    .then((res)=>{
+      // console.log(res.data)
+      setdata(res.data)
+    })
+  },[])
+ 
+ 
+
+   
+  console.log(data,"data")
   const [alerts, setalert] = useState(false)
   const [present, setpresent] = useState(false)
 const navigate=useNavigate()
@@ -886,16 +695,16 @@ const navigate=useNavigate()
               id='imageavatar'
                 borderRadius='50%'
                 boxSize='150px'
-                src='https://bit.ly/dan-abramov'
+                src={data.image}
                 alt='Dan Abramov'
               />
             </Box>
             <Box height='100%' lineHeight='50px' textAlign='start'>
               <Box id='navDescription'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, accusantium?
+                {data.description}
               </Box>
               <Box id='section3' >
-                <Text id='navtext'> Dan Abramov</Text>
+                <Text id='navtext'>{data.name}</Text>
                
                
                 <Box id='followbox'>
@@ -925,12 +734,12 @@ const navigate=useNavigate()
 
 
             <Box  >
-              <Image width='100%' borderRadius='10px' height='800' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+              <Image width='100%' borderRadius='10px' height='800' src={data.image} alt='Dan Abramov' />
             </Box>
             {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolores, culpa reprehenderit fugiat, eveniet vitae, eaque eos libero non temporibus ex eligendi voluptas repellat. Nulla eveniet minus quisquam obcaecati aut. */}
 
             <Box marginTop='20' fontSize='20px' mb='20'>
-              <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur aliquam incidunt iste rem obcaecati earum ut dolores excepturi quisquam animi.</Text>
+              <Text>{data.description}</Text>
             </Box>
 
             <hr />
