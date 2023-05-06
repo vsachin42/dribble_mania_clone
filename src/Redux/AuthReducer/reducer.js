@@ -3,6 +3,7 @@ import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionTypes"
 const initialState = {
     isLoading: false,
     isError: false,
+    isAuth: false,
     userData: []
 }
 
