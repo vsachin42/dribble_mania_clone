@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div>
       <Container maxW='6xl' centerContent>
-        <Box pt={'50px'} display='flex' width='800px'ml={100} >
+        <Box pt={'30px'} display='flex' width='800px'ml={100} >
           <Box  >
             <Image
           borderRadius='100%'
@@ -19,7 +19,7 @@ const HomePage = () => {
           <Spacer/>
           <Box display='flex'  width='30%'>
             <Button  borderRadius='10'  backgroundColor='white' color='black' >Save</Button>
-            <Button  borderRadius='10'  color='white' backgroundColor='#ec5c8d'>Like</Button>
+            <Button  borderRadius='10'  color='white' backgroundColor='#ec5c8d' _hover={{bg:"#ec5c8d"}}>Like</Button>
           </Box>
         </Box>
         <Box mt={10}>
