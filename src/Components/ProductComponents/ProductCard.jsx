@@ -2,6 +2,7 @@ import { Box, Button, Image, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { VscHeart } from "react-icons/vsc";
 import { ViewIcon } from '@chakra-ui/icons'
+import {Link} from "react-router-dom"
 
 
 const ProductCard = ({ id, image, name, description, usertype, rating }) => {
@@ -17,7 +18,7 @@ const ProductCard = ({ id, image, name, description, usertype, rating }) => {
   }
 
   return (
-    <Box borderTopRadius={'10px'} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" >
+    <Link to={`/products/${id}`}><Box borderTopRadius={'10px'} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" >
       <Image borderRadius={"10px"} src={image} h={'230px'} />
       <Box p={"5px"} mt={'5px'} display={'flex'}>
         <Text fontSize={'14px'} fontWeight={'semibold'}>{name}</Text>
@@ -38,6 +39,7 @@ const ProductCard = ({ id, image, name, description, usertype, rating }) => {
       </Box>
       <Button>Rating - {rating}</Button>
     </Box>
+    </Link>
   )
 }
 
