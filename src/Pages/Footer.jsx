@@ -1,5 +1,6 @@
 import { Box, Container, Flex, Link,Image, Text, Spacer } from "@chakra-ui/react"
-import React from "react"
+import React from "react";
+
 const Footer=()=>{
     return <div  >
         <Container maxW={'5xl'} centerContent mt={20}>
@@ -107,4 +108,4 @@ const Footer=()=>{
         
     </div>
 }
-export default Footer
+export default Footer;

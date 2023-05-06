@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Container, Text } from '@chakra-ui/react'
 import { Image, Button } from '@chakra-ui/react'
 import { Link, Navigate } from 'react-router-dom'
-import { Grid,ButtonGroup, GridItem,ModalOverlay,Modal,ModalBody,ModalFooter,ModalContent,ModalHeader,ModalCloseButton,useDisclosure } from '@chakra-ui/react'
+import { Grid, ButtonGroup, GridItem, ModalOverlay, Modal, ModalBody, ModalFooter, ModalContent, ModalHeader, ModalCloseButton, useDisclosure } from '@chakra-ui/react'
 import '../App.css'
 import { Input } from '@chakra-ui/react'
-import {MainRoutes} from '../Components/MainRoutes'
-
+import { MainRoutes } from '../Components/MainRoutes'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 function HireMeModal() {
 
@@ -17,113 +18,101 @@ function HireMeModal() {
     />
   )
 
-  
+
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
 
   return (
     <>
-    <Button
+      <Button
 
-backgroundColor='#E91E63' color='white'
-      onClick={() => {
-        setOverlay(<OverlayOne />)
-        onOpen()
-      }}
-    >
-      Hire me
-    </Button>
-  
-    <Modal isCentered isOpen={isOpen} onClose={onClose}>
-      {overlay}
-      <ModalContent>
-        <ModalHeader display='flex' alignItems='center'>
-        <Image
-  borderRadius='full'
-  boxSize='50px'
-  src='https://bit.ly/dan-abramov'
-  alt='Dan Abramov'
-/>
-          Message name</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-        <Input  size="md"  textAlign='start' placeholder='Start a Conversation with Breno bitencourt' />
-        </ModalBody>
-        <ModalFooter>
-        <ButtonGroup>
-        <Button onClick={onClose}>Close</Button>
-          <Button bg='red' color='white' onClick={onClose}>Send</Button>
-        </ButtonGroup>
-          
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  </>
+        backgroundColor='#E91E63' color='white'
+        onClick={() => {
+          setOverlay(<OverlayOne />)
+          onOpen()
+        }}
+      >
+        Hire me
+      </Button>
+
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+        {overlay}
+        <ModalContent>
+          <ModalHeader display='flex' alignItems='center'>
+            <Image
+              borderRadius='full'
+              boxSize='50px'
+              src='https://bit.ly/dan-abramov'
+              alt='Dan Abramov'
+            />
+            Message name</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Input size="md" textAlign='start' placeholder='Start a Conversation with Breno bitencourt' />
+          </ModalBody>
+          <ModalFooter>
+            <ButtonGroup>
+              <Button onClick={onClose}>Close</Button>
+              <Button bg='red' color='white' onClick={onClose}>Send</Button>
+            </ButtonGroup>
+
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
 
-
-
-
-
 const SingleProductPage = () => {
-
-
-  let closepage=()=>{
-   <Navigate to="/products" />
-   
-   
+  const [data,setdata]=useState("")
+  const {id}=useParams()
+  console.log(id)
+  useEffect(()=>{
+    axios.get(`https://dribble-mania.onrender.com/products/${id}`)
+    .then((res)=>{
+      // console.log(res.data)
+      setdata(res.data)
+    })
+  },[])
+  let closepage = () => {
+    <Navigate to="/products" />
   }
-
-
-
+  
   return (
     <div>
-    
+      <Button marginLeft='1700px' onClick={closepage}>Close</Button>
+      <Container marginTop='25' border='2px solid ' display='flex' maxW='16xl' mb='20'>
 
-<Button marginLeft='1700px' onClick={closepage}>Close</Button>
-      <Container marginTop='25' border='2px solid ' display='flex'  maxW='16xl' mb='20'>
-      
-     
-     
-
-     
-       
         {/* <Box  border='2px solid'>
 </Box> */}
+        <Container maxW='6xl' margin='auto' border='2px solid red '>
 
-
-
-        <Container maxW='6xl'  margin='auto'   border='2px solid red '>
-        
-        
           <Box maxW='5xl' display='flex' alignItems='center' margin='auto' justifyContent='space-around' mb='10'  >
-         
+
             <Box >
 
               <Image
                 borderRadius='50%'
-                boxSize='150px'
-                src='https://bit.ly/dan-abramov'
+                width={'80%'}
+                height={'70%'}
+                // boxSize='150px'
+                src={data.image}
                 alt='Dan Abramov'
               />
             </Box>
             <Box height='100%' lineHeight='50px' textAlign='start'>
               <Box>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, accusantium?
+               {data.description}
               </Box>
               <Box>
-                Dan Abramov
+               {data.name}
                 •
                 Follow
                 •
 
                 {/* <a href="">Hire Me</a> */}
                 <a style={{ color: '#E91E63', textDecoration: 'none' }} href=''>Hire Me</a>
-            
-               
-
 
               </Box>
             </Box>
@@ -136,14 +125,13 @@ const SingleProductPage = () => {
 
           <Box maxW='7xl '>
 
-
             <Box  >
-              <Image width='100%' height='800' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+              <Image width='100%' borderRadius={'10px'} height='800' src={data.image} alt='Dan Abramov' />
             </Box>
             {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolores, culpa reprehenderit fugiat, eveniet vitae, eaque eos libero non temporibus ex eligendi voluptas repellat. Nulla eveniet minus quisquam obcaecati aut. */}
 
             <Box marginTop='20' fontSize='20px' mb='20'>
-              <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur aliquam incidunt iste rem obcaecati earum ut dolores excepturi quisquam animi.</Text>
+              <Text>{data.description}</Text>
             </Box>
 
             <hr />
@@ -174,7 +162,7 @@ const SingleProductPage = () => {
               </Text>
               {/* <Button padding='5' backgroundColor='#E91E63' color='white'>Hire Me</Button> */}
 
-              <HireMeModal/>
+              <HireMeModal />
 
             </Box>
 
@@ -260,50 +248,126 @@ const SingleProductPage = () => {
 
             </Grid>
 
-
-
           </Box>
 
         </Container>
         <Box>
-         <Button></Button>
+          <Button></Button>
         </Box>
-
-        
-        
-
-
 
       </Container>
       <hr />
       <Container maxW='6xl' mb='10' mt='20' padding='0' centerContent>
         <Grid templateColumns='repeat(3, 1fr)' templateRows='repeat(2, 1fr)' width='100%' gap={9}>
 
-
-
-
-
-
           <Box w='100%'>
-         
-
-          <div className="container" >
-                <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-                <div className="overlay">
-
-                  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                    <Text fontSize='15'>name</Text>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
-                  </Text>
 
 
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
 
-                </div>
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
+                </Text>
               </div>
+            </div>
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
+          </Box>
+          <Box w='100%'>
 
 
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
 
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
+                </Text>
+              </div>
+            </div>
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
+          </Box>
+          <Box w='100%'>
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
+                </Text>
+              </div>
+            </div>
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
+          </Box>
+          <Box w='100%'>
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
+                </Text>
+              </div>
+            </div>
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
+          </Box>
+          <Box w='100%'>
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
+                </Text>
+              </div>
+            </div>
             <Box display='flex' alignItems='center' mt='5'>
               <Image
                 borderRadius='full'
@@ -322,188 +386,39 @@ const SingleProductPage = () => {
 
 
 
-
-
           <Box w='100%'>
-         
 
-         <div className="container" >
-               <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-               <div className="overlay">
 
-                 <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                   <Text fontSize='15'>name</Text>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
-                 </Text>
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
 
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
+                </Text>
 
 
-               </div>
-             </div>
 
+              </div>
+            </div>
 
 
-           <Box display='flex' alignItems='center' mt='5'>
-             <Image
-               borderRadius='full'
-               boxSize='40px'
-               src='https://bit.ly/dan-abramov'
-               alt='Dan Abramov'
-             />
-             <Text pl='3' pr='3'>lorem</Text>
-             <Button width='20%'>Team</Button>
-           </Box>
 
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
 
-         </Box>
 
-
-         <Box w='100%'>
-         
-
-         <div className="container" >
-               <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-               <div className="overlay">
-
-                 <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                   <Text fontSize='15'>name</Text>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
-                 </Text>
-
-
-
-               </div>
-             </div>
-
-
-
-           <Box display='flex' alignItems='center' mt='5'>
-             <Image
-               borderRadius='full'
-               boxSize='40px'
-               src='https://bit.ly/dan-abramov'
-               alt='Dan Abramov'
-             />
-             <Text pl='3' pr='3'>lorem</Text>
-             <Button width='20%'>Team</Button>
-           </Box>
-
-
-         </Box>
-
-
-
-
-         <Box w='100%'>
-         
-
-         <div className="container" >
-               <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-               <div className="overlay">
-
-                 <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                   <Text fontSize='15'>name</Text>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
-                 </Text>
-
-
-
-               </div>
-             </div>
-
-
-
-           <Box display='flex' alignItems='center' mt='5'>
-             <Image
-               borderRadius='full'
-               boxSize='40px'
-               src='https://bit.ly/dan-abramov'
-               alt='Dan Abramov'
-             />
-             <Text pl='3' pr='3'>lorem</Text>
-             <Button width='20%'>Team</Button>
-           </Box>
-
-
-         </Box>
-
-
-
-
-         <Box w='100%'>
-         
-
-         <div className="container" >
-               <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-               <div className="overlay">
-
-                 <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                   <Text fontSize='15'>name</Text>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
-                 </Text>
-
-
-
-               </div>
-             </div>
-
-
-
-           <Box display='flex' alignItems='center' mt='5'>
-             <Image
-               borderRadius='full'
-               boxSize='40px'
-               src='https://bit.ly/dan-abramov'
-               alt='Dan Abramov'
-             />
-             <Text pl='3' pr='3'>lorem</Text>
-             <Button width='20%'>Team</Button>
-           </Box>
-
-
-         </Box>
-
-
-
-
-
-         <Box w='100%'>
-         
-
-         <div className="container" >
-               <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-               <div className="overlay">
-
-                 <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                   <Text fontSize='15'>name</Text>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>save</Button>
-                   <Button bg='grey' fontSize='12' padding='0' margin='0' color='black'>Like</Button>
-                 </Text>
-
-
-
-               </div>
-             </div>
-
-
-
-           <Box display='flex' alignItems='center' mt='5'>
-             <Image
-               borderRadius='full'
-               boxSize='40px'
-               src='https://bit.ly/dan-abramov'
-               alt='Dan Abramov'
-             />
-             <Text pl='3' pr='3'>lorem</Text>
-             <Button width='20%'>Team</Button>
-           </Box>
-
-
-         </Box>
+          </Box>
 
 
 

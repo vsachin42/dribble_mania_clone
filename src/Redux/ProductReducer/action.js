@@ -5,7 +5,7 @@ import { GET_PRODUCT_FALIURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS } from ".
 export const Get_Data=(paramsobj)=>(dispatch)=>{
     console.log(paramsobj)
     dispatch({type:GET_PRODUCT_REQUEST})
-    axios.get("http://localhost:8080/products",paramsobj)
+    axios.get("https://dribble-mania.onrender.com/products",paramsobj)
     .then((res)=>{
     dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data})
     })
