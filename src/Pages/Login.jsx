@@ -19,11 +19,15 @@ const Login = () => {
      if(email==="admin@mail.com" && password==="admin"){
       navigate("/admin");
      }else if(email && password){
-      userData.map((el) => {
-        if(el.email===email && el.password===password){
-            navigate("/");
-        }
-      })
+      if(email && password){
+        userData.map((el) => {
+          if(el.email===email && el.password===password){
+              navigate("/");
+          }
+        })
+      }else{
+        alert("Wrong Credentials")
+      }
      }else{
       alert("Please fill all details");
      };

@@ -31,7 +31,7 @@ const SignUp = () => {
       setEmail("");
       setPassword("");
     }else{
-      // alert("Please fill all details");
+      alert("Please fill all details");
        alertDialouge()
     }
   };
