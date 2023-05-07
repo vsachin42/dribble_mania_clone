@@ -2,6 +2,7 @@ import { Box, Button, Image, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { VscHeart } from "react-icons/vsc";
 import { ViewIcon } from '@chakra-ui/icons'
+import {Link} from "react-router-dom"
 import { Link } from 'react-router-dom';
 
 
