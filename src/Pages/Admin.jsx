@@ -1,4 +1,3 @@
-import Navbar from "../Navbar/Navbar";
 
 import {Button,FormControl,Input,Center} from "@chakra-ui/react"
  import axios from "axios"
@@ -7,14 +6,22 @@ import {Button,FormControl,Input,Center} from "@chakra-ui/react"
 import { Container } from "@chakra-ui/react";
 import Product from "./Adminproductdata";
 
+// "id": 1,
+// "name": "Random Logofolio Update v4 - 2023",
+// "image": "https://cdn.dribbble.com/userupload/6689959/file/original-ff36e3265e4b95a3095eb4e82bfea99d.jpg?compress=1&resize=400x300&vertical=top",
+// "usertype": "PRO",
+// "description": "Random logos from the portfolio collection 04. See below for the availability of these Which of these logos stands out the most to you? Have a lovely day everyone!",
+// "rating": 4.4
+
 
 function Admin (){
     const initial_state = {
-        image: "",
+       
         name: "",
+        image: "",
+        usertype:"",
+        description:"",
         rating: "",
-        desc:"",
-        price:""
       }
     
     const [updated,setUpdated]=useState(false)
@@ -33,7 +40,7 @@ function Admin (){
 
 
     const Add_cat=async ()=>{
-      const url=`https://products-v7vr.onrender.com/products?`
+      const url=`https://dribble-mania.onrender.com/products?`
       let res=await axios.post(url,input_data);
       setUpdated(!updated)
       
@@ -49,26 +56,25 @@ function Admin (){
     
       return (
         <div>
-          <Navbar/>
           <Container >
       
         <div className="addCatContainer" >
           <form className="form" >
             <FormControl m="20px">
 
-                              <Input onChange={handleChange} name ="image" className="image" placeholder="Image" />
+                             
 
-              <Input onChange={handleChange} name ="name" className="name" placeholder="Name" />
+              <Input onChange={handleChange} name ="name"  placeholder="Name" />
 
-            
+              <Input onChange={handleChange} name ="image"  placeholder="Image" />
     
+              <Input onChange={handleChange} name ="usertype"  placeholder="usertype" type="text" />
+
+              <Input onChange={handleChange}  name ="description" placeholder="Description" />
+
+             
+
               <Input onChange={handleChange} name ="rating"  className="likes" placeholder="rating" type="number" />
-
-              <Input onChange={handleChange}  name ="desc"  className="description" placeholder="Description" />
-
-              <Input onChange={handleChange} name ="price"  className="cost" placeholder="price" type="number" />
-
-              {/* <Input onChange={handleChange} name ="id"  className="id" placeholder="id" type="number" /> */}
 <Center>
               <Button onClick={handleSubmit} colorScheme={"green"} className="submitBtn" mt="20px"   p={4}
   color='white'

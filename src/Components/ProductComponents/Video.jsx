@@ -37,7 +37,7 @@ const Video = () => {
         setsearchparams(param)
     }, [search])
     return (
-        <Box position={'relative'}>
+        <Box w={{base:"120vw",sm:"120vw",md:"120vw",lg:"100%",xl:"100%","2xl":"100%"}} position={'relative'} >
             <Box position={'relative'}>
                 <video style={{
                     top: 0,
@@ -55,7 +55,7 @@ const Video = () => {
             </Box>
 
             {/* Buttons */}
-            <Box w={'80%'} textAlign={'center'} marginLeft={'10%'} display={'flex'} justifyContent={'space-between'} color="white" top="8%" position={'absolute'}>
+            <Box w={'80%'} textAlign={'center'} marginLeft={'10%'} display={'flex'} justifyContent={'space-between'} flexWrap={'wrap'} color="white" top="8%" position={'absolute'}>
                 <Button _hover={'none'} padding={'25px 20px'} color={'black'} backgroundColor={'white'} borderRadius={"25px"}>Discover</Button>
 
                 <Button backgroundColor={'rgba(0,0,0,0.5)'} padding={'25px 20px'} borderRadius={"25px"} _hover={{ backgroundColor: "white", color: "black" }}>Animation</Button>
@@ -92,7 +92,7 @@ const Video = () => {
             <Box position={'absolute'} top="59%" fontSize={'18px'} color={'gray.600'} marginLeft={'29.5%'}>
                 <Search2Icon />
             </Box>
-            <Box width={'53%'} backgroundColor={'none'} marginLeft={'23%'} color={'white'} display={'flex'} justifyContent={'space-between'} top={'75%'} position={'absolute'}>
+            <Box width={'53%'} backgroundColor={'none'} marginLeft={'23%'} color={'white'} display={'flex'} justifyContent={'space-between'} flexWrap={'wrap'} top={'75%'} position={'absolute'}>
                 <Heading fontSize={'15px'} fontWeight={'semibold'} marginTop={'1%'}>Trending searches</Heading>
                 <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>landing page</Button>
                 <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>ios</Button>
@@ -107,4 +107,3 @@ const Video = () => {
 }
 
 export default Video
-

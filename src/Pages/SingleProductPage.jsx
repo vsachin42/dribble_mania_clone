@@ -332,7 +332,7 @@ function DrawerExample() {
 
   const feedbackdata = JSON.parse(localStorage.getItem('feedback'))
 
-  // console.log(feedbackdata[0].name)
+  console.log(feedbackdata[0].name)
   return (
     <>
       <Button ref={btnRef} onClick={onOpen}>
@@ -478,7 +478,7 @@ const AlertMessagePresent = () => {
 
 const SingleProductPage = () => {
   const [data, setdata] = useState("")
-  const[post,setpost]=useState([])
+  const [post, setpost] = useState([])
   const { id } = useParams()
   console.log(id)
   useEffect(() => {
@@ -497,7 +497,7 @@ const SingleProductPage = () => {
       })
   }, [])
 
-  console.log(post,"postaa")
+  console.log(post, "postaa")
 
 
 
@@ -671,6 +671,16 @@ const SingleProductPage = () => {
     )
   }
 
+ 
+  const filterdata=post.filter((e)=>{
+    if( e.rating==data.rating){
+      return  e
+    }
+  
+  })
+
+  console.log(filterdata,"filter")
+
 
   return (
     <div>
@@ -774,10 +784,10 @@ const SingleProductPage = () => {
 
             <Box lineHeight='9' marginTop='20' marginBottom='40'>
               <Text fontSize='20' fontWeight='bold'>
-                Type08 (Alen Pavlovic)
+             {data.name}
               </Text>
               <Text>
-                Logo designer. Author of 850 logos worldwide. Let's work!
+               {data.usertype}
 
               </Text>
               {/* <Button padding='5' backgroundColor='#E91E63' color='white'>Hire Me</Button> */}
@@ -788,7 +798,7 @@ const SingleProductPage = () => {
 
 
             <Box display='flex' justifyContent='space-between'>
-              <Text marginBottom='10' textAlign='start' fontWeight='bold'>More by Type08 (Alen Pavlovic)</Text>
+              <Text marginBottom='10' textAlign='start' fontWeight='bold'>More by rating ({data.rating})</Text>
               <Text>
                 <a style={{ color: '#E91E63', textDecoration: 'none' }} href="">View Profile</a> <br />
 
@@ -796,86 +806,35 @@ const SingleProductPage = () => {
 
             </Box>
 
-         
-
-            <Grid   templateRows='repeat(2, 1fr)'
-  templateColumns='repeat(5, 1fr)'
-  gap={4} >
 
 
-            {post.length>=8 && post.map((e)=>(
-
-<div className="container" >
-<img src={e.image} alt="Avatar" className="image" />
-<div className="overlay">
-
-  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-    <Text fontSize='15'>{e.name}</Text>
-    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={savedata}>save</Button>
-    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-  </Text>
+            <Grid templateRows='repeat(2, 1fr)'
+              templateColumns='repeat(2, 1fr)'
+              gap={2} >
 
 
+              { filterdata.map((e)  => (
 
-</div>
-</div>
-  
-  ))}
+                <div className="container" >
+                  <img src={e.image} alt="Avatar" className="image" />
+                  <div className="overlay">
 
-
-            
-
-
-{/* 
-              <div className="container" >
-                <img src="https://cdn.dribbble.com/userupload/5493775/file/original-16cd68512fceaad1384a282486df24eb.png?compress=1&crop=0x0-1600x1200&resize=320x240&vertical=top" alt="Avatar" className="image" />
-                <div className="overlay">
-
-                  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                    <Text fontSize='15'>name</Text>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                  </Text>
+                    <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                      <Text fontSize='15'>{e.name}</Text>
+                      <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={savedata}>save</Button>
+                      <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
+                    </Text>
 
 
 
+                  </div>
                 </div>
-              </div> */}
 
-
-              {/* <div className="container" >
-                <img src="https://cdn.dribbble.com/userupload/3285358/file/original-8f3922359ec0736cfb8f0e5d371f93b0.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-                <div className="overlay">
-
-                  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                    <Text fontSize='15'>name</Text>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                  </Text>
+              ))}
 
 
 
-                </div>
-              </div> */}
 
-              {/* <div className="container" >
-                <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-                <div className="overlay">
-
-                  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                    <Text fontSize='15'>name</Text>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                  </Text>
-
-
-
-                </div>
-              </div> */}
-
-              {/* <Image w='100% ' src='https://cdn.dribbble.com/userupload/4448970/file/original-29a45552f860393facaab4e5ee1842e3.jpg?compress=1&resize=320x240&vertical=top'></Image>
-              <Image w='100%' src='https://cdn.dribbble.com/users/22136/screenshots/17373337/media/673c9e22f62486fb15a9c464f2c6996e.jpg?compress=1&resize=320x240&vertical=top'></Image>
-              <Image w='100%' src='https://cdn.dribbble.com/userupload/4697706/file/original-72f08bcbefa39b259e37ca74924d59c2.jpg?compress=1&resize=320x240&vertical=top'></Image> */}
 
             </Grid>
 
@@ -925,86 +884,55 @@ const SingleProductPage = () => {
       <Container id='bottompart' maxW='6xl' mb='10' mt='20' padding='0' centerContent>
         <Grid templateColumns='repeat(3, 1fr)' templateRows='repeat(2, 1fr)' width='100%' gap={9}>
 
+{post.map((e)=>(
+
+
+<Box w='100%'>
+
+
+<div className="container" >
+  <img src={e.image} alt="Avatar" className="image" />
+  <div className="overlay">
+
+    <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+      <Text fontSize='15'>{e.name}</Text>
+      <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
+      <Button bg='grey' fontSize='12' padding='0' margin='0' color='black ' onClick={likedata}>Like</Button>
+    </Text>
+
+
+
+  </div>
+</div>
+
+
+
+<Box display='flex' alignItems='center' mt='5'>
+  <Image
+    borderRadius='full'
+    boxSize='40px'
+    src='https://bit.ly/dan-abramov'
+    alt='Dan Abramov'
+  />
+  <Text pl='3' pr='3'>{e.name}</Text>
+  <Button width='20%'>{e.usertype}</Button>
+</Box>
+
+
+</Box>
+
+))}
 
 
 
 
 
-          <Box w='100%'>
-
-
-            <div className="container" >
-              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-              <div className="overlay">
-
-                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                  <Text fontSize='15'>name</Text>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black ' onClick={likedata}>Like</Button>
-                </Text>
-
-
-
-              </div>
-            </div>
-
-
-
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box>
 
 
 
 
 
-
-
-          <Box w='100%'>
-
-
-            <div className="container" >
-              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-              <div className="overlay">
-
-                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                  <Text fontSize='15'>name</Text>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                </Text>
-
-
-
-              </div>
-            </div>
-
-
-
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box>
-
-
+{/* 
           <Box w='100%'>
 
 
@@ -1025,150 +953,6 @@ const SingleProductPage = () => {
 
 
 
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box>
-
-
-
-
-          <Box w='100%'>
-
-
-            <div className="container" >
-              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-              <div className="overlay">
-
-                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                  <Text fontSize='15'>name</Text>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                </Text>
-
-
-
-              </div>
-            </div>
-
-
-
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box>
-
-
-
-
-          <Box w='100%'>
-
-
-            <div className="container" >
-              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-              <div className="overlay">
-
-                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                  <Text fontSize='15'>name</Text>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                </Text>
-
-
-
-              </div>
-            </div>
-
-
-
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box>
-
-
-
-
-
-          <Box w='100%'>
-
-
-            <div className="container" >
-              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-              <div className="overlay">
-
-                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                  <Text fontSize='15'>name</Text>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
-                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                </Text>
-
-
-
-              </div>
-            </div>
-
-
-
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* <Box w='100%'>
-            <Image src="https://cdn.dribbble.com/userupload/4147916/file/original-0b5b843cf7db40ec5a70e42ff68caa8c.jpg?compress=1&resize=320x240&vertical=top">
-            </Image>
             <Box display='flex' alignItems='center' mt='5'>
               <Image
                 borderRadius='full'
@@ -1184,10 +968,26 @@ const SingleProductPage = () => {
           </Box> */}
 
 
-
           {/* <Box w='100%'>
-            <Image src="https://cdn.dribbble.com/userupload/4147916/file/original-0b5b843cf7db40ec5a70e42ff68caa8c.jpg?compress=1&resize=320x240&vertical=top">
-            </Image>
+
+
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
+                </Text>
+
+
+
+              </div>
+            </div>
+
+
+
             <Box display='flex' alignItems='center' mt='5'>
               <Image
                 borderRadius='full'
@@ -1201,12 +1001,105 @@ const SingleProductPage = () => {
 
 
           </Box>
- */}
 
 
-          {/* <Box w='100%'>
-            <Image src="https://cdn.dribbble.com/userupload/4147916/file/original-0b5b843cf7db40ec5a70e42ff68caa8c.jpg?compress=1&resize=320x240&vertical=top">
-            </Image>
+
+
+          <Box w='100%'>
+
+
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
+                </Text>
+
+
+
+              </div>
+            </div>
+
+
+
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
+
+
+          </Box>
+
+
+
+
+          <Box w='100%'>
+
+
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
+                </Text>
+
+
+
+              </div>
+            </div>
+
+
+
+            <Box display='flex' alignItems='center' mt='5'>
+              <Image
+                borderRadius='full'
+                boxSize='40px'
+                src='https://bit.ly/dan-abramov'
+                alt='Dan Abramov'
+              />
+              <Text pl='3' pr='3'>lorem</Text>
+              <Button width='20%'>Team</Button>
+            </Box>
+
+
+          </Box>
+
+
+
+
+
+          <Box w='100%'>
+
+
+            <div className="container" >
+              <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
+              <div className="overlay">
+
+                <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+                  <Text fontSize='15'>name</Text>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' onClick={savedata} color='black'>save</Button>
+                  <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
+                </Text>
+
+
+
+              </div>
+            </div>
+
+
+
             <Box display='flex' alignItems='center' mt='5'>
               <Image
                 borderRadius='full'
@@ -1220,53 +1113,6 @@ const SingleProductPage = () => {
 
 
           </Box> */}
-
-
-
-          {/* <Box w='100%'>
-            <Image src="https://cdn.dribbble.com/userupload/4147916/file/original-0b5b843cf7db40ec5a70e42ff68caa8c.jpg?compress=1&resize=320x240&vertical=top">
-            </Image>
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box> */}
-
-
-
-          {/* <Box w='100%'>
-            <Image src="https://cdn.dribbble.com/userupload/4147916/file/original-0b5b843cf7db40ec5a70e42ff68caa8c.jpg?compress=1&resize=320x240&vertical=top">
-            </Image>
-            <Box display='flex' alignItems='center' mt='5'>
-              <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
-              />
-              <Text pl='3' pr='3'>lorem</Text>
-              <Button width='20%'>Team</Button>
-            </Box>
-
-
-          </Box> */}
-
-
-
-
-
-
-
-
-
 
 
         </Grid>
