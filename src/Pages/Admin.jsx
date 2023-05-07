@@ -1,4 +1,5 @@
-import Navbar from "../Components/Navbar";
+import Navbar from "../Navbar/Navbar";
+
 import {Button,FormControl,Input,Center} from "@chakra-ui/react"
  import axios from "axios"
 
@@ -90,4 +91,4 @@ function Admin (){
       );
 }
 
-export default Admin;
+export default Admin

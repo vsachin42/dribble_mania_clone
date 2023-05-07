@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Container, Text, useToast } from '@chakra-ui/react'
-import { Image, Button,FormLabel,FormControl, } from '@chakra-ui/react'
+
+
 import { Link, Navigate } from 'react-router-dom'
-import { Grid, ButtonGroup, GridItem, ModalOverlay, Modal, ModalBody, ModalFooter, ModalContent, ModalHeader, ModalCloseButton, useDisclosure } from '@chakra-ui/react'
+
 import '../App.css'
-import { Input } from '@chakra-ui/react'
-import { MainRoutes } from '../Components/MainRoutes'
-import { PhoneIcon,  AddIcon, EmailIcon,BellIcon, WarningIcon, InfoIcon, ChatIcon } from '@chakra-ui/icons'
-import { Tooltip ,} from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
-import { useSearchParams } from 'react-router-dom'
-import { Card, Stack,Heading,CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+
+
+import { EmailIcon, BellIcon, ChatIcon } from '@chakra-ui/icons'
+
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+
+
 import {
   Drawer,
   DrawerBody,
@@ -20,20 +19,21 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-} from '@chakra-ui/react'
-import {
+  Box, Container, Text, useToast,
+  Image, Button, FormLabel, FormControl,
+  Grid, ButtonGroup, GridItem, ModalOverlay, Modal, ModalBody, ModalFooter, ModalContent, ModalHeader, ModalCloseButton, useDisclosure,
+  Input,
+  Tooltip,
+  Card, Stack, Heading, CardHeader, CardBody, CardFooter,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
   CloseButton,
+
 } from '@chakra-ui/react'
+
 import axios from 'axios'
-
-
-
-
-
 
 function DrawerSaved() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -41,12 +41,12 @@ function DrawerSaved() {
 
   const products = JSON.parse(localStorage.getItem('save')) || [];
 
-  
+
 
   return (
     <>
-      <Button ref={btnRef}  onClick={onOpen}>
-      <EmailIcon /> 
+      <Button ref={btnRef} onClick={onOpen}>
+        <EmailIcon />
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -60,46 +60,46 @@ function DrawerSaved() {
           <DrawerHeader>Saved datas</DrawerHeader>
 
           <DrawerBody>
-           {products.map((e)=>(
+            {products.map((e) => (
 
 
-<Card width='100%' height='150'
-direction={{ base: 'column', sm: 'row' }}
-overflow='hidden'
-variant='outline'
->
-<Image 
-  objectFit='cover'
-  maxW={{ base: '100%', sm: '150px' }}
-  src={e.image}
-  alt={e.name}
-/>
+              <Card width='100%' height='150'
+                direction={{ base: 'column', sm: 'row' }}
+                overflow='hidden'
+                variant='outline'
+              >
+                <Image
+                  objectFit='cover'
+                  maxW={{ base: '100%', sm: '150px' }}
+                  src={e.image}
+                  alt={e.name}
+                />
 
-<Stack >
-  <CardBody>
-    {/* <Heading width='50%' fontSize='22' >The perfect latte</Heading> */}
-    <Text>{e.name}</Text>
-
-  
-  </CardBody>
-
-  <CardFooter>
-   
-  </CardFooter>
-</Stack>
-</Card>
+                <Stack >
+                  <CardBody>
+                    {/* <Heading width='50%' fontSize='22' >The perfect latte</Heading> */}
+                    <Text>{e.name}</Text>
 
 
-           ))}
-         
-           
+                  </CardBody>
+
+                  <CardFooter>
+
+                  </CardFooter>
+                </Stack>
+              </Card>
+
+
+            ))}
+
+
           </DrawerBody>
 
           <DrawerFooter>
             <Button variant='outline' mr={3} onClick={onClose}>
               Close
             </Button>
-           
+
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
@@ -116,12 +116,12 @@ function DrawerLiked() {
 
   const products = JSON.parse(localStorage.getItem('like')) || [];
 
-  
+
 
   return (
     <>
-      <Button ref={btnRef}  onClick={onOpen}>
-      <BellIcon/>
+      <Button ref={btnRef} onClick={onOpen}>
+        <BellIcon />
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -135,46 +135,46 @@ function DrawerLiked() {
           <DrawerHeader>Saved datas</DrawerHeader>
 
           <DrawerBody>
-           {products.map((e)=>(
+            {products.map((e) => (
 
 
-<Card width='100%' height='150'
-direction={{ base: 'column', sm: 'row' }}
-overflow='hidden'
-variant='outline'
->
-<Image 
-  objectFit='cover'
-  maxW={{ base: '100%', sm: '150px' }}
-  src={e.image}
-  alt={e.name}
-/>
+              <Card width='100%' height='150'
+                direction={{ base: 'column', sm: 'row' }}
+                overflow='hidden'
+                variant='outline'
+              >
+                <Image
+                  objectFit='cover'
+                  maxW={{ base: '100%', sm: '150px' }}
+                  src={e.image}
+                  alt={e.name}
+                />
 
-<Stack >
-  <CardBody>
-    {/* <Heading width='50%' fontSize='22' >The perfect latte</Heading> */}
-    <Text>{e.name}</Text>
-
-  
-  </CardBody>
-
-  <CardFooter>
-   
-  </CardFooter>
-</Stack>
-</Card>
+                <Stack >
+                  <CardBody>
+                    {/* <Heading width='50%' fontSize='22' >The perfect latte</Heading> */}
+                    <Text>{e.name}</Text>
 
 
-           ))}
-         
-           
+                  </CardBody>
+
+                  <CardFooter>
+
+                  </CardFooter>
+                </Stack>
+              </Card>
+
+
+            ))}
+
+
           </DrawerBody>
 
           <DrawerFooter>
             <Button variant='outline' mr={3} onClick={onClose}>
               Close
             </Button>
-           
+
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
@@ -251,10 +251,10 @@ function Feedbackwriting() {
 
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
-  let[name,setname]=useState('')
-  let[date,setdate]=useState('')
-  let[feedback,setfeedback]=useState('')
-  let[savefeedbackdata,setsavefeedbackdata]=useState([])
+  let [name, setname] = useState('')
+  let [date, setdate] = useState('')
+  let [feedback, setfeedback] = useState('')
+  let [savefeedbackdata, setsavefeedbackdata] = useState([])
 
   useEffect(() => {
     const storedsave = localStorage.getItem('feedback');
@@ -263,17 +263,17 @@ function Feedbackwriting() {
     }
   }, []);
 
-  let savefeedback=(e)=>{
-e.preventDefault()
-let newfeedback={
-  name:name,
-  date:date,
-  feedback:feedback
-}
+  let savefeedback = (e) => {
+    e.preventDefault()
+    let newfeedback = {
+      name: name,
+      date: date,
+      feedback: feedback
+    }
 
-const feedbackdata = JSON.parse(localStorage.getItem('feedback')) || [];
+    const feedbackdata = JSON.parse(localStorage.getItem('feedback')) || [];
 
-      localStorage.setItem('feedback', JSON.stringify([...feedbackdata, newfeedback]));
+    localStorage.setItem('feedback', JSON.stringify([...feedbackdata, newfeedback]));
 
   }
 
@@ -296,20 +296,20 @@ const feedbackdata = JSON.parse(localStorage.getItem('feedback')) || [];
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              
-              <Input ref={initialRef} placeholder='your name'  value={name} onChange={(e)=>{setname(e.target.value)}} />
+
+              <Input ref={initialRef} placeholder='your name' value={name} onChange={(e) => { setname(e.target.value) }} />
             </FormControl>
 
-             <FormControl mt={4}>
+            <FormControl mt={4}>
               <FormLabel>date</FormLabel>
-              <Input type="date" id="birthday" value={date} onChange={(e)=>{setdate(e.target.value)}} name="date" />
-            </FormControl> 
+              <Input type="date" id="birthday" value={date} onChange={(e) => { setdate(e.target.value) }} name="date" />
+            </FormControl>
 
 
             <FormControl mt={4}>
               <FormLabel>feedback</FormLabel>
-              <Input type="text" id="" value={feedback} onChange={(e)=>{setfeedback(e.target.value)}} name="birthday" />
-            </FormControl> 
+              <Input type="text" id="" value={feedback} onChange={(e) => { setfeedback(e.target.value) }} name="birthday" />
+            </FormControl>
 
           </ModalBody>
 
@@ -331,8 +331,8 @@ function DrawerExample() {
   const btnRef = React.useRef()
 
   const feedbackdata = JSON.parse(localStorage.getItem('feedback'))
-  
-console.log(feedbackdata[0].name)
+
+  // console.log(feedbackdata[0].name)
   return (
     <>
       <Button ref={btnRef} onClick={onOpen}>
@@ -354,31 +354,31 @@ console.log(feedbackdata[0].name)
             <ul>
 
 
-{feedbackdata.map((e)=>(
-   <li style={{ listStyle: 'none', margin: '7px' }} >
-   <Box display='flex' alignItems='center' padding='2'>
-     <Image marginTop='-9'
-       borderRadius='full'
-       boxSize='50px'
-       src='https://bit.ly/dan-abramov'
-       alt='Dan Abramov'
-     />
-     <Text ml='5'>{e.name}
-       <Text>{e.feedback}</Text>
+              {feedbackdata.map((e) => (
+                <li style={{ listStyle: 'none', margin: '7px' }} >
+                  <Box display='flex' alignItems='center' padding='2'>
+                    <Image marginTop='-9'
+                      borderRadius='full'
+                      boxSize='50px'
+                      src='https://bit.ly/dan-abramov'
+                      alt='Dan Abramov'
+                    />
+                    <Text ml='5'>{e.name}
+                      <Text>{e.feedback}</Text>
 
-       <Text color='grey'>{e.date}</Text>
-     </Text>
+                      <Text color='grey'>{e.date}</Text>
+                    </Text>
 
-   </Box>
-
-
+                  </Box>
 
 
 
- </li>
-))}
 
-           
+
+                </li>
+              ))}
+
+
 
 
 
@@ -398,7 +398,7 @@ console.log(feedbackdata[0].name)
               Cancel
             </Button>
             {/* <Button onClick={feedbackwrite} colorScheme='blue'>Write FeedBack</Button> */}
-            <Feedbackwriting/>
+            <Feedbackwriting />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
@@ -477,39 +477,50 @@ const AlertMessagePresent = () => {
 
 
 const SingleProductPage = () => {
-  const [data,setdata]=useState("")
-  const {id}=useParams()
+  const [data, setdata] = useState("")
+  const[post,setpost]=useState([])
+  const { id } = useParams()
   console.log(id)
-  useEffect(()=>{
+  useEffect(() => {
     axios.get(`https://dribble-mania.onrender.com/products/${id}`)
-    .then((res)=>{
-      // console.log(res.data)
-      setdata(res.data)
-    })
-  },[])
- 
- 
+      .then((res) => {
+        // console.log(res.data)
+        setdata(res.data)
+      })
+  }, [])
 
-   
-  console.log(data,"data")
+  useEffect(() => {
+    axios.get(`https://dribble-mania.onrender.com/products/`)
+      .then((res) => {
+        // console.log(res.data)
+        setpost(res.data)
+      })
+  }, [])
+
+  console.log(post,"postaa")
+
+
+
+
+  console.log(data, "data")
   const [alerts, setalert] = useState(false)
   const [present, setpresent] = useState(false)
-const navigate=useNavigate()
+  const navigate = useNavigate()
 
-  const[liks,setlikes]=useState(false)
-  const[oldlikes,setoldlikes]=useState(false)
+  const [liks, setlikes] = useState(false)
+  const [oldlikes, setoldlikes] = useState(false)
 
   const [save, setsave] = useState([]);
 
 
   let closepage = () => {
-  navigate('/products')
+    navigate('/products')
 
 
 
   }
 
-  
+
 
   useEffect(() => {
     const storedsave = localStorage.getItem('save');
@@ -520,12 +531,12 @@ const navigate=useNavigate()
 
   let savedata = () => {
     let newProduct = {
-      id:1,
-      name: "Random Logofolio Update v4 - 2023",
-      image: "https://cdn.dribbble.com/userupload/6689959/file/original-ff36e3265e4b95a3095eb4e82bfea99d.jpg?compress=1&resize=400x300&vertical=top",
-      usertype: "PRO",
-      description: "Random logos from the portfolio collection 04. See below for the availability of these Which of these logos stands out the most to you? Have a lovely day everyone!",
-      rating: 4.4
+      id: id,
+      name: data.name,
+      image: data.image,
+      usertype: data.usertype,
+      description: data.description,
+      rating: data.rating
     }
 
     const products = JSON.parse(localStorage.getItem('save')) || [];
@@ -550,7 +561,7 @@ const navigate=useNavigate()
       setalert(true)
       setpresent(false)
 
-   
+
 
       localStorage.setItem('save', JSON.stringify([...products, newProduct]));
 
@@ -573,12 +584,12 @@ const navigate=useNavigate()
 
   let likedata = () => {
     let newProducts = {
-      id: 17,
-      name: "Random Logofolio Update v4 - 2023",
-      image: "https://cdn.dribbble.com/userupload/6689959/file/original-ff36e3265e4b95a3095eb4e82bfea99d.jpg?compress=1&resize=400x300&vertical=top",
-      usertype: "PRO",
-      description: "Random logos from the portfolio collection 04. See below for the availability of these Which of these logos stands out the most to you? Have a lovely day everyone!",
-      rating: 4.4
+      id: id,
+      name: data.name,
+      image: data.image,
+      usertype: data.usertype,
+      description: data.description,
+      rating: data.rating
     }
 
     const productss = JSON.parse(localStorage.getItem('like')) || [];
@@ -586,14 +597,14 @@ const navigate=useNavigate()
     const existingItems = productss.find((i) => i.id === newProducts.id);
 
     if (existingItems) {
-     
+
       setoldlikes(true)
       setlikes(false)
 
 
     } else {
 
-     
+
 
       setoldlikes(false)
       setlikes(true)
@@ -614,8 +625,8 @@ const navigate=useNavigate()
     const toast = useToast()
     return (
       <Button
-      color='white' backgroundColor='#E91E63'
-        onClick={() =>(
+        color='white' backgroundColor='#E91E63'
+        onClick={() => (
           likedata,
           toast({
             title: 'u liked this post.',
@@ -625,8 +636,8 @@ const navigate=useNavigate()
             isClosable: true,
           })
         )
-          
-         
+
+
         }
       >
         like
@@ -641,21 +652,21 @@ const navigate=useNavigate()
     const toast = useToast()
     return (
       <Button
-      color='white' backgroundColor='#E91E63'
-      
-      onClick={() =>(
-        likedata,
-        toast({
-          title: 'u liked this post.',
-          description: "data will be added in to u r libary",
-          status: 'warning',
-          duration: 9000,
-          isClosable: true,
-        })
-      )}
+        color='white' backgroundColor='#E91E63'
+
+        onClick={() => (
+          likedata,
+          toast({
+            title: 'u liked this post.',
+            description: "data will be added in to u r libary",
+            status: 'warning',
+            duration: 9000,
+            isClosable: true,
+          })
+        )}
       >
         Like
-       
+
       </Button>
     )
   }
@@ -666,7 +677,7 @@ const navigate=useNavigate()
 
       {alerts ? <AlertMessage /> : ''}
       {present ? <AlertMessagePresent /> : ""}
-     
+
       <Button marginLeft='1700px' id='closebutton' onClick={closepage}>Close</Button>
       <Container marginTop='25' display='flex' id='topcontainer' maxW='16xl' mb='20'>
 
@@ -680,19 +691,19 @@ const navigate=useNavigate()
 
 
 
-        <Container maxW='6xl' margin='auto'  id="sectioncontainer"  >
+        <Container maxW='6xl' margin='auto' id="sectioncontainer"  >
 
 
           <Box maxW='5xl' id="" display='flex' alignItems='center' margin='auto' justifyContent='space-around' mb='10'  >
-                    {/* {data?.map((el)=>(
+            {/* {data?.map((el)=>(
            console.log(el.data,"sameera")
                     )
                       
                     )} */}
-            <Box  id='imagebox' >
+            <Box id='imagebox' >
 
-              <Image 
-              id='imageavatar'
+              <Image
+                id='imageavatar'
                 borderRadius='50%'
                 boxSize='150px'
                 src={data.image}
@@ -705,14 +716,14 @@ const navigate=useNavigate()
               </Box>
               <Box id='section3' >
                 <Text id='navtext'>{data.name}</Text>
-               
-               
-                <Box id='followbox'>
-                Follow .
-                
 
-                {/* <a href="">Hire Me</a> */}
-                <a  style={{ color: '#E91E63', textDecoration: 'none' }} href=''>Hire Me</a>
+
+                <Box id='followbox'>
+                  Follow .
+
+
+                  {/* <a href="">Hire Me</a> */}
+                  <a style={{ color: '#E91E63', textDecoration: 'none' }} href=''>Hire Me</a>
 
                 </Box>
 
@@ -721,10 +732,10 @@ const navigate=useNavigate()
             </Box>
             <Box display='flex' justifyContent='space-between' width='15%'>
               <Button borderRadius='10' padding='5' backgroundColor='white' color='black' onClick={savedata} >Save</Button>
-               {/* <Button borderRadius='10' padding='5' color='white' backgroundColor='#E91E63' onClick={likedata}>Like</Button> */}
-               {liks ? <ToastLiks/> :''}
-      {oldlikes ? <ToastLiksPresent/>:''} 
-               <ToastLiks />
+              {/* <Button borderRadius='10' padding='5' color='white' backgroundColor='#E91E63' onClick={likedata}>Like</Button> */}
+              {liks ? <ToastLiks /> : ''}
+              {oldlikes ? <ToastLiksPresent /> : ''}
+              <ToastLiks />
               {/* </Button> */}
             </Box>
 
@@ -739,6 +750,7 @@ const navigate=useNavigate()
             {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolores, culpa reprehenderit fugiat, eveniet vitae, eaque eos libero non temporibus ex eligendi voluptas repellat. Nulla eveniet minus quisquam obcaecati aut. */}
 
             <Box marginTop='20' fontSize='20px' mb='20'>
+
               <Text>{data.description}</Text>
             </Box>
 
@@ -784,26 +796,37 @@ const navigate=useNavigate()
 
             </Box>
 
-            <Grid templateColumns='repeat(4, 1fr)' gap={7}>
+         
+
+            <Grid   templateRows='repeat(2, 1fr)'
+  templateColumns='repeat(5, 1fr)'
+  gap={4} >
 
 
-              <div className="container" >
-                <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
-                <div className="overlay">
+            {post.length>=8 && post.map((e)=>(
 
-                  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
-                    <Text fontSize='15'>namess</Text>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={savedata}>save</Button>
-                    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
-                  </Text>
+<div className="container" >
+<img src={e.image} alt="Avatar" className="image" />
+<div className="overlay">
 
-
-
-                </div>
-              </div>
+  <Text className="text" display='flex' justifyContent='space-between' width='90%'>
+    <Text fontSize='15'>{e.name}</Text>
+    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={savedata}>save</Button>
+    <Button bg='grey' fontSize='12' padding='0' margin='0' color='black' onClick={likedata}>Like</Button>
+  </Text>
 
 
 
+</div>
+</div>
+  
+  ))}
+
+
+            
+
+
+{/* 
               <div className="container" >
                 <img src="https://cdn.dribbble.com/userupload/5493775/file/original-16cd68512fceaad1384a282486df24eb.png?compress=1&crop=0x0-1600x1200&resize=320x240&vertical=top" alt="Avatar" className="image" />
                 <div className="overlay">
@@ -817,10 +840,10 @@ const navigate=useNavigate()
 
 
                 </div>
-              </div>
+              </div> */}
 
 
-              <div className="container" >
+              {/* <div className="container" >
                 <img src="https://cdn.dribbble.com/userupload/3285358/file/original-8f3922359ec0736cfb8f0e5d371f93b0.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
                 <div className="overlay">
 
@@ -833,9 +856,9 @@ const navigate=useNavigate()
 
 
                 </div>
-              </div>
+              </div> */}
 
-              <div className="container" >
+              {/* <div className="container" >
                 <img src="https://cdn.dribbble.com/userupload/4154280/file/original-12cc5e0baf28e9038e4507bdceb1b90b.png?compress=1&resize=320x240&vertical=top" alt="Avatar" className="image" />
                 <div className="overlay">
 
@@ -848,7 +871,7 @@ const navigate=useNavigate()
 
 
                 </div>
-              </div>
+              </div> */}
 
               {/* <Image w='100% ' src='https://cdn.dribbble.com/userupload/4448970/file/original-29a45552f860393facaab4e5ee1842e3.jpg?compress=1&resize=320x240&vertical=top'></Image>
               <Image w='100%' src='https://cdn.dribbble.com/users/22136/screenshots/17373337/media/673c9e22f62486fb15a9c464f2c6996e.jpg?compress=1&resize=320x240&vertical=top'></Image>
@@ -873,17 +896,17 @@ const navigate=useNavigate()
           <br />
 
           <Tooltip label='Feedbacks' placement='left'>
-      <Button>  <DrawerExample /></Button>
-    </Tooltip> <br /> <br />
+            <Button>  <DrawerExample /></Button>
+          </Tooltip> <br /> <br />
 
           {/* <DrawerExample /> <br /><br /> */}
-           <Tooltip label='saved data' placement='left'>
-      <Button><DrawerSaved/></Button>
-    </Tooltip> <br /> <br />
+          <Tooltip label='saved data' placement='left'>
+            <Button><DrawerSaved /></Button>
+          </Tooltip> <br /> <br />
           {/* <Button><EmailIcon /></Button> <br /> <br /> */}
           <Tooltip label='Liked data' placement='left'>
-      <Button><DrawerLiked/></Button>
-    </Tooltip> <br /> <br />
+            <Button><DrawerLiked /></Button>
+          </Tooltip> <br /> <br />
 
           {/* <Button> <InfoIcon /></Button> */}
 
@@ -1251,14 +1274,14 @@ const navigate=useNavigate()
 
 
 
-<Box width='500px' alignItems='center' margin='auto' justifyContent='space-between'  display='flex'>
-<Button fontWeight='normal' fontSize='15'>Previous shot</Button>
-          <Button fontWeight='normal' fontSize='15'>Next shot</Button>
-          <Button fontWeight='normal' fontSize='15'>Like</Button>
-          <Button fontWeight='normal' fontSize='15'>Close</Button>
-       
-</Box>
-           </Text>
+          <Box width='500px' alignItems='center' margin='auto' justifyContent='space-between' display='flex'>
+            <Button fontWeight='normal' fontSize='15'>Previous shot</Button>
+            <Button fontWeight='normal' fontSize='15'>Next shot</Button>
+            <Button fontWeight='normal' fontSize='15'>Like</Button>
+            <Button fontWeight='normal' fontSize='15'>Close</Button>
+
+          </Box>
+        </Text>
       </Container>
 
     </div>
