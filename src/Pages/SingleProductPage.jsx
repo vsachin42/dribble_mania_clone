@@ -138,7 +138,7 @@ function DrawerLiked() {
             {products.map((e) => (
 
 
-              <Card width='100%' height='150'
+              <Card key={e.id} width='100%' height='150'
                 direction={{ base: 'column', sm: 'row' }}
                 overflow='hidden'
                 variant='outline'
@@ -332,7 +332,7 @@ function DrawerExample() {
 
   const feedbackdata = JSON.parse(localStorage.getItem('feedback'))
 
-  console.log(feedbackdata[0].name)
+  // console.log(feedbackdata[0].name)
   return (
     <>
       <Button ref={btnRef} onClick={onOpen}>
@@ -353,10 +353,12 @@ function DrawerExample() {
 
             <ul>
 
-
-              {feedbackdata.map((e) => (
-                <li style={{ listStyle: 'none', margin: '7px' }} >
-                  <Box display='flex' alignItems='center' padding='2'>
+              
+               {feedbackdata.map((e) => (
+                // console.log(e,"sameera")
+              
+                <li key={e.id} style={{ listStyle: 'none', margin: '7px' }} >
+                  <Box  display='flex' alignItems='center' padding='2'>
                     <Image marginTop='-9'
                       borderRadius='full'
                       boxSize='50px'
@@ -376,7 +378,7 @@ function DrawerExample() {
 
 
                 </li>
-              ))}
+              ))} 
 
 
 
@@ -497,12 +499,7 @@ const SingleProductPage = () => {
       })
   }, [])
 
-  console.log(post, "postaa")
-
-
-
-
-  console.log(data, "data")
+  
   const [alerts, setalert] = useState(false)
   const [present, setpresent] = useState(false)
   const navigate = useNavigate()
@@ -597,13 +594,13 @@ const SingleProductPage = () => {
     const existingItems = productss.find((i) => i.id === newProducts.id);
 
     if (existingItems) {
-
+alert("you are Ready like this post")
       setoldlikes(true)
       setlikes(false)
 
 
     } else {
-
+alert("You Like This Post")
 
 
       setoldlikes(false)
@@ -742,10 +739,10 @@ const SingleProductPage = () => {
             </Box>
             <Box display='flex' justifyContent='space-between' width='15%'>
               <Button borderRadius='10' padding='5' backgroundColor='white' color='black' onClick={savedata} >Save</Button>
-              {/* <Button borderRadius='10' padding='5' color='white' backgroundColor='#E91E63' onClick={likedata}>Like</Button> */}
-              {liks ? <ToastLiks /> : ''}
+              <Button borderRadius='10' padding='5' color='white' backgroundColor='#E91E63' onClick={likedata}>Like</Button>
+              {/* {liks ? <ToastLiks /> : ''}
               {oldlikes ? <ToastLiksPresent /> : ''}
-              <ToastLiks />
+              <ToastLiks /> */}
               {/* </Button> */}
             </Box>
 
@@ -815,7 +812,7 @@ const SingleProductPage = () => {
 
               { filterdata.map((e)  => (
 
-                <div className="container" >
+                <div key={e.id} className="container" >
                   <img src={e.image} alt="Avatar" className="image" />
                   <div className="overlay">
 
@@ -890,7 +887,7 @@ const SingleProductPage = () => {
 <Box w='100%'>
 
 
-<div className="container" >
+<div key={e.id} className="container" >
   <img src={e.image} alt="Avatar" className="image" />
   <div className="overlay">
 
@@ -942,3 +939,6 @@ const SingleProductPage = () => {
 }
 
 export default SingleProductPage;
+
+
+
