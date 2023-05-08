@@ -34,6 +34,7 @@ import {
 } from '@chakra-ui/react'
 
 import axios from 'axios'
+import Footer from './Footer'
 
 function DrawerSaved() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -355,6 +356,7 @@ function DrawerExample() {
 
               
                {feedbackdata.map((e) => (
+               {/* {feedbackdata.map((e) => (
                 // console.log(e,"sameera")
               
                 <li key={e.id} style={{ listStyle: 'none', margin: '7px' }} >
@@ -379,6 +381,7 @@ function DrawerExample() {
 
                 </li>
               ))} 
+              ))}  */}
 
 
 
@@ -933,7 +936,7 @@ alert("You Like This Post")
           </Box>
         </Text>
       </Container>
-
+       <Footer />
     </div>
   )
 }

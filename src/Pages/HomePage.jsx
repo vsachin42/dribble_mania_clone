@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Button, Container, Flex, Grid, GridItem, Image, Spacer, Text } from '@chakra-ui/react'
+import Footer from './Footer';
 const HomePage = () => {
   return (
     <div>
@@ -145,7 +146,7 @@ const HomePage = () => {
           </Flex>
         </Box>
       </Container>
-      
+      <Footer/>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import {Button,FormControl,Input,Center} from "@chakra-ui/react"
  import{useState} from "react"
 import { Container } from "@chakra-ui/react";
 import Product from "./Adminproductdata";
+import Footer from "./Footer";
 
 // "id": 1,
 // "name": "Random Logofolio Update v4 - 2023",
@@ -92,6 +93,7 @@ function Admin (){
        
         </Container>
         <Product updated={updated}  />
+        <Footer/>
         </div>
        
       );
