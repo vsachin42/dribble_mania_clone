@@ -64,8 +64,8 @@ const Productlist = () => {
     setvisible((prev) => !prev)
   }
   return (
-    <Box>
-      <Box display={{base:"",sm:"flex",md:"flex",lg:"flex",xl:"flex","2xl":"flex"}}  justifyContent={'space-between'} width={'90%'}  margin={'2% auto'}>
+    <Box w={{base:"940px",sm:"1075px",md:"150%",lg:"1439px",xl:"100%","2xl":"100%"}}  position={'relative'}>
+      <Box display={{base:"",sm:"flex",md:"flex",lg:"flex",xl:"flex","2xl":"flex"}}  justifyContent={'space-between'}  width={'90%'}  margin={'2% auto'}>
         {/* sorting */}
         <Box ml={{base:'80px',sm:'0',md:'0',lg:'0',xl:'0',"2xl":'0'}}>
           <Select  boxShadow={' rgba(0, 0, 0, 0.35) 0px 5px 15px;'} borderColor={'none'} focusBorderColor='gray.100' onChange={handlesort} border="1px solid gray" _hover={'none'} w={{base:"100%",sm:"100%",md:"100%",lg:"100%",xl:"100%","2xl":"100%"}} mb={{base:"20px",sm:"",md:"",lg:"",xl:"","2xl":""}} placeholder='popular'>
@@ -74,7 +74,7 @@ const Productlist = () => {
           </Select>
         </Box>
         {/* filtering */}
-        <Box p={'10x 0px'} onClick={handlevisible} display={visible ? "none" : "block"} ml={{base:"80px",sm:"0",md:"0",lg:"0",xl:"0","2xl":"0"}} w={{base:"77%",sm:"35%",md:"27%",lg:"14%",xl:"12%","2xl":"12%"}}>
+        <Box p={'10x 0px'} onClick={handlevisible} display={visible ? "none" : "block"} ml={{base:"80px",sm:"0",md:"0",lg:"0",xl:"0","2xl":"0"}} w={{base:"90%",sm:"35%",md:"27%",lg:"14%",xl:"12%","2xl":"12%"}}>
           <Box pb={'5px'} width={'100%'} borderRadius={'10px'} border="1px solid silver" boxShadow={' rgba(0, 0, 0, 0.35) 0px 5px 15px;'} display={'flex'} justifyContent={'space-around'}>
             <Box mt={'8px'}> <VscFilter fontSize={'22px'} mt={"10px"} /></Box>
             <Box>
@@ -86,7 +86,7 @@ const Productlist = () => {
           </Box>
         </Box>
 
-        <Box display={!visible ? "none" : "block"}  w={{base:"77%",sm:"45%",md:"35%",lg:"20%",xl:"15%","2xl":"15%"}}  ml={{base:'80px',sm:'0px',md:'40px',lg:'0',xl:'0',"2xl":'0'}} >
+        <Box display={!visible ? "none" : "block"}  w={{base:"90%",sm:"45%",md:"35%",lg:"20%",xl:"15%","2xl":"15%"}}  ml={{base:'80px',sm:'0px',md:'40px',lg:'0',xl:'0',"2xl":'0'}} >
           <Box borderRadius={'10px'} display={{base:"",sm:"flex",md:"flex",lg:"flex",xl:"flex","2xl":"flex"}} w={'100%'}  justifyContent={'space-between'} boxShadow={' rgba(0, 0, 0, 0.35) 0px 5px 15px;'} p={'1px 20px'} >
             <Box mr={{base:"5",sm:"6",md:"5",lg:"",xl:"","2xl":""}} onChange={handleusertype}>
               <Text>Filter By UserType</Text>
@@ -103,7 +103,7 @@ const Productlist = () => {
               <Checkbox colorScheme='green' ml={'3px'} borderRadius={'4px'} mt={1} border="1px solid silver" value="TEAM" />
             </Box> */}
             {/* close icaon */}
-            <Box onClick={closeicon} display={{base:"none",sm:'block',md:'block',lg:'block',xl:'block',"2xl":'block'}} h={{base:'80px',sm:'40px',md:'40x',lg:'40px',xl:'40px',"2xl":'40px'}} mt={{base:'-50px',sm:2,md:2,lg:2,xl:2,"2xl":2}}  ml={{base:"130px",sm:"-125px",md:"-105px",lg:"-60px",xl:"-40px","2xl":"-40px"}}>
+            <Box onClick={closeicon} display={{base:"block",sm:'block',md:'block',lg:'block',xl:'block',"2xl":'block'}} h={{base:'80px',sm:'40px',md:'40x',lg:'40px',xl:'40px',"2xl":'40px'}} mt={{base:'-50px',sm:2,md:2,lg:2,xl:2,"2xl":2}}  ml={{base:"130px",sm:"-125px",md:"-105px",lg:"-60px",xl:"-40px","2xl":"-40px"}}>
               <TriangleUpIcon />
             </Box>
           </Box>

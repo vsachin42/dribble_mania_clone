@@ -355,6 +355,7 @@ function DrawerExample() {
             <ul>
 
               
+               {feedbackdata.map((e) => (
                {/* {feedbackdata.map((e) => (
                 // console.log(e,"sameera")
               
@@ -379,6 +380,7 @@ function DrawerExample() {
 
 
                 </li>
+              ))} 
               ))}  */}
 
 
@@ -940,3 +942,6 @@ alert("You Like This Post")
 }
 
 export default SingleProductPage;
+
+
+
