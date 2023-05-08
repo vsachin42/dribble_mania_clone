@@ -1,8 +1,21 @@
 import { Box, Button, Container, Flex, Image, Spacer, Text, filter } from '@chakra-ui/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  let userName = JSON.parse(localStorage.getItem("userName"));
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if(userName){
+      localStorage.removeItem("userName");
+      window.location.reload();
+    }else{
+        navigate("/signup");
+    }
+  }
+
+
   return (
     <div>
       <Flex m={4} shadow={'sm'} p={5}>
@@ -32,12 +45,16 @@ const Navbar = () => {
                 color={'grey'}
                 _hover={{
                   bg: 'white',
-                }}>Sign in</Button>
+                }}>{
+                  userName ? `Hi! ${userName}` : "Sign In" 
+                }</Button>
                 </Link>
         </Box>
         <Box ml={2}>
-          <Link to="/signup"><Button bg={'#ea4c89'}
-                color={'white'} _hover={{backgroundColor:"#F48FB1"}}>Sign Up</Button></Link>
+          {/* <Link to="/signup"> */}
+            <Button bg={'#ea4c89'}
+                color={'white'} _hover={{backgroundColor:"#F48FB1"}} onClick={handleLogout}>{(JSON.parse(localStorage.getItem("userName")) && "LogOut") || "Sign Up"}</Button>
+                {/* </Link> */}
         </Box> 
       </Flex>
         </div>

@@ -20,20 +20,27 @@ const Login = () => {
       navigate("/admin");
      }else if(email && password){
       if(email && password){
-        userData.map((el) => {
-          if(el.email===email && el.password===password){
-              navigate("/");
-          }
-        })
+        // userData.map((el) => {
+        //   if(el.email===email && el.password===password){
+        //       navigate("/");
+        //       localStorage.setItem("userName", JSON.stringify(el.name));
+        //   }
+        // })
+        for(let i=1; i<userData.length; i++){
+          if(userData[i].email===email && userData[i].password===password){
+             localStorage.setItem("userName", JSON.stringify(userData[i].name));
+             navigate("/");
+                  break;
+              }
+        }
       }else{
-        alert("Wrong Credentials")
+        alert("Wrong Credentials");
       }
      }else{
       alert("Please fill all details");
      };
-
-    setEmail("");
-    setPassword("");
+    // setEmail("");
+    // setPassword("");
    }
 
 
