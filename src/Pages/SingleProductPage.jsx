@@ -584,13 +584,14 @@ const SingleProductPage = () => {
 
   let likedata = () => {
     let newProducts = {
-      id: id,
-      name: data.name,
+      id:id,
+      name:data.name,
       image: data.image,
-      usertype: data.usertype,
-      description: data.description,
-      rating: data.rating
+      usertype :data.usertype,
+      description : data.description,
+      rating:data.rating
     }
+    console.log(newProducts,"likeddata")
 
     const productss = JSON.parse(localStorage.getItem('like')) || [];
 
@@ -601,9 +602,11 @@ const SingleProductPage = () => {
       setoldlikes(true)
       setlikes(false)
 
+      alert("u liked alrdy")
+
 
     } else {
-
+alert("u liked this post")
 
 
       setoldlikes(false)
@@ -742,10 +745,10 @@ const SingleProductPage = () => {
             </Box>
             <Box display='flex' justifyContent='space-between' width='15%'>
               <Button borderRadius='10' padding='5' backgroundColor='white' color='black' onClick={savedata} >Save</Button>
-              {/* <Button borderRadius='10' padding='5' color='white' backgroundColor='#E91E63' onClick={likedata}>Like</Button> */}
-              {liks ? <ToastLiks /> : ''}
+               <Button borderRadius='10' padding='5' color='white' backgroundColor='#E91E63' onClick={likedata}>Like</Button> 
+              {/* {liks ? <ToastLiks /> : ''}
               {oldlikes ? <ToastLiksPresent /> : ''}
-              <ToastLiks />
+              <ToastLiks /> */}
               {/* </Button> */}
             </Box>
 
