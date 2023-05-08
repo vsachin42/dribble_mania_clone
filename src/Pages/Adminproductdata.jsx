@@ -93,7 +93,7 @@ getData(url2)
       color='blue.500'
       size='xl'
     /></Center>:
-      <SimpleGrid  gap='20px' columns={3} className="main_container" m="20px" >
+      <SimpleGrid  gap='20px' columns={{ base: '1', md: '2', lg: '4' }} className="main_container" m="20px" >
 
         {
           state.data?.map((el)=>{
