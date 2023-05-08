@@ -1,11 +1,12 @@
 import React from 'react'
 import { Box, Button, Container, Flex, Grid, GridItem, Image, Spacer, Text } from '@chakra-ui/react'
 import Footer from './Footer';
+import styled from 'styled-components';
 const HomePage = () => {
   return (
-    <div>
-      <Container maxW='6xl' centerContent>
-        <Box pt={'30px'} display='flex' width='800px'ml={100} >
+    <DIV>
+      <Container maxW="6xl" centerContent   overflow={'hidden'}>
+        <Box pt={'30px'} display='flex' width='800px'ml={100} className='main' >
           <Box  >
             <Image
           borderRadius='100%'
@@ -18,7 +19,7 @@ const HomePage = () => {
             <Text fontSize={'14px'} fontWeight={400}>Ofspace UX/UI • Follow • <a style={{color:'#E91E63',textDecoration:'none'}}   href="">Hire Us</a></Text>
           </Box>
           <Spacer/>
-          <Box display='flex'  width='30%'>
+          <Box display='flex'  width='30%' className='sub'>
             <Button  borderRadius='10'  backgroundColor='white' color='black' >Save</Button>
             <Button  borderRadius='10'  color='white' backgroundColor='#ec5c8d' _hover={{bg:"#ec5c8d"}}>Like</Button>
           </Box>
@@ -35,7 +36,7 @@ const HomePage = () => {
           <Image 
           borderRadius={10} w={950} _hover={{ transform: "scale(1.03)",cursor:"pointer" }} transition={"0.2s ease-in-out"} src="https://cdn.dribbble.com/userupload/2904325/file/original-bb2d7317c4c9972a8b65f12f99048088.png?compress=1&resize=1200x4896&vertical=center" alt="err" />
         </Box>
-        <Box mt={50} textAlign="justify" fontSize={'20px'}fontWeight={400} >
+        <Box mt={50} textAlign="justify" fontSize={'20px'}fontWeight={400}  >
           <Text as="p">Enter your text here...<b>Foggy Clothing - Ecommerce Landing Page</b></Text>
           <Text><b>.</b></Text>
           <Text as="p"  >Our Website <a style={{color:"#ec5c8d"}}  href="https://ofspace.co/">https://ofspace.co/</a></Text>
@@ -65,7 +66,7 @@ const HomePage = () => {
             <Text as="p"><a style={{color:"#ec5c8d"}} href="View profile">View profile</a></Text>
             </Box>
           </Flex>
-          <Grid templateColumns='repeat(4, 1fr)' gap={4}mt={5}  >
+          <Grid templateColumns='repeat(4, 1fr)' gap={4} mt={5}  className='first' >
             <GridItem >
             <Image borderRadius={10} w={300} _hover={{ transform: "scale(1.03)", cursor:"pointer" }} transition={"0.2s ease-in-out"} src='https://cdn.dribbble.com/userupload/2955790/file/original-9953d712ee22b4821176714646602c8c.png?compress=1&resize=1200x900'alt='err'/>
             </GridItem>
@@ -87,7 +88,7 @@ const HomePage = () => {
             <Text as="h3" fontSize={'16px'} fontWeight={700}> <b>You might also like</b> </Text>
             </Box>
           </Flex>
-          <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={5} >
+          <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={5} className='second' >
             <GridItem >
             <Image borderRadius={10} w={400} _hover={{ transform: "scale(1.03)", cursor:"pointer" }} transition={"0.2s ease-in-out"} src='https://cdn.dribbble.com/userupload/4879596/file/original-bf3c251d0e6105da38953395dc8fa669.png?compress=1&resize=1200x900'alt='err'/>
             <Flex mt={2}>
@@ -147,8 +148,47 @@ const HomePage = () => {
         </Box>
       </Container>
       <Footer/>
-    </div>
+    </DIV>
   )
 }
+const DIV=styled.div`
+overflow-x:hidden;
+width:100%;
+margin: auto;
 
+@media all and (min-width:481px) and (max-width:750px){
+  .first{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .second{
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .main{
+    margin: auto;
+    display: flex;
+    margin-left:60px;
+  }
+  .sub>Button{
+    display: none;
+  }
+}
+@media all and (max-width:480px){
+  .first{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .second{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .main{
+    
+    margin: auto;
+    display: flex;
+  }
+  .sub>Button{
+    display: none;
+  }
+}
+  
+`
 export default HomePage;

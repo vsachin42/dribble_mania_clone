@@ -6,7 +6,7 @@ const Footer=()=>{
         <Container maxW={'5xl'} centerContent mt={20}>
             <Box w={'1400px'}  h={'500px'} shadow={'xs'} fontFamily={'"Haas Grot Text R Web'} margin={'auto'}  >
                 <Flex gap={10}  pt={10} p={10} >
-                    <Box>
+                    <Box className="first">
                         <Link to='/'><Image w={150}  src='./dribbble-mania.jpg'/></Link>
                         <Box textAlign={'start'} mt={5}  fontSize={16} fontWeight={400} color={'rgb(61, 61, 78)'}  lineHeight={'20px'}>
                             <Text>Dribbble is the world’s leading</Text>
@@ -23,7 +23,7 @@ const Footer=()=>{
                             </Flex>
                         </Box>
                     </Box>
-                    <Box fontSize={16} fontWeight={500} textAlign={'start'}  lineHeight={8} >
+                    <Box fontSize={16} fontWeight={500} textAlign={'start'}  lineHeight={8}className="second" >
                         <Text><b>For designers</b></Text>
                         <Box color={'rgb(61, 61, 78)'}>
                             <Text cursor={'pointer'}>Go Pro!</Text>
@@ -108,4 +108,5 @@ const Footer=()=>{
         
     </div>
 }
+
 export default Footer;
