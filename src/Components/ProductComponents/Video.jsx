@@ -37,8 +37,8 @@ const Video = () => {
         setsearchparams(param)
     }, [search])
     return (
-        <Box w={{base:"940px",sm:"1075px",md:"1439px",lg:"1439px",xl:"100%","2xl":"100%"}}   h={{base:"115vh",sm:"110vh",md:"110vh",lg:"98vh",xl:"77vh","2xl":"77vh"}}  overflow={'hidden'}  position={'relative'}  >
-          
+        <Box w={{base:"940px",sm:"1075px",md:"1439px",lg:"1439px",xl:"100%","2xl":"100%"}}   h={{base:"450px",sm:"470px",md:"450px",lg:"400px",xl:"400px","2xl":"77vh"}}  overflow={'hidden'}  position={'relative'}  >
+           {/* h={{base:"115vh",sm:"110vh",md:"110vh",lg:"98vh",xl:"77vh","2xl":"77vh"}} */}
             <Box position={'relative'}>
                 <video style={{
                     top: 0,
@@ -81,19 +81,19 @@ const Video = () => {
                     Explore the world’s leading design portfolios
                 </Heading>
             </Box>
-            <Box width={{base:"60%",sm:"44%",md:"44%",lg:"44%",xl:"44%","2xl":"44%"}} mt={'1.8%'} marginLeft={{base:"19%",sm:"30%",md:"25%",lg:"28%",xl:"27%","2xl":"27%"}} position={'absolute'} top={'38%'}  marginTop={{base:"5%",sm:"4%",md:"2%",lg:"3%",xl:"2%","2xl":"2%"}}  >
+            <Box width={{base:"60%",sm:"44%",md:"44%",lg:"44%",xl:"50%","2xl":"46%"}} mt={'1.8%'} marginLeft={{base:"19%",sm:"30%",md:"25%",lg:"28%",xl:"27%","2xl":"27%"}} position={'absolute'}  top={{base:"44%",sm:"42%",md:"42%",lg:"42%",xl:"42%","2xl":"42%"}}  >
                 <Heading fontFamily={'"Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;'} color="white" fontSize={'17.5px'} fontWeight={'light'}>
                     Millions of designers and agencies around the world showcase their portfolio work on Dribbble - the home to the world’s best design and creative professionals.
                 </Heading>
             </Box>
-            <Box marginTop={{base:"8%",sm:"4%",md:"2%",lg:"5%",xl:"1%","2xl":"1%"}}  borderRadius={'25px'} width={{base:"50%",sm:"41%",md:"41%",lg:"41%",xl:"41%","2xl":"41%"}}  height="55px" opacity="1"  marginLeft={{base:"25%",sm:"32%",md:"28%",lg:"28%",xl:"28%","2xl":"28%"}} backgroundColor={'white'} position={'absolute'} top="54%">
-
-                <Input marginBottom={{base:"50px",sm:"40px",md:"30px",lg:"20px",xl:"0px","2xl":"0px"}}  value={search} onChange={handlesearch} className='inputbox' opacity="10" paddingLeft={'60px'} background={'transparent'} fontSize={'20px'} h={'55px'} border={'none'} color="gray.600" borderRadius={'25px'} placeholder='Search...' />
+            <Box top={{base:"67%",sm:"65%",md:"62%",lg:"62%",xl:"62%","2xl":"60%"}}  borderRadius={'25px'} width={{base:"50%",sm:"41%",md:"41%",lg:"41%",xl:"41%","2xl":"41%"}}  height="55px" opacity="1"  marginLeft={{base:"25%",sm:"32%",md:"28%",lg:"28%",xl:"28%","2xl":"28%"}} backgroundColor={'white'} position={'absolute'} >
+            {/* marginTop={{base:"8%",sm:"4%",md:"2%",lg:"5%",xl:"1%","2xl":"1%"}} */}
+                <Input backgroundSize={'20px'}  backgroundImage={'https://tse3.mm.bing.net/th?id=OIP.RF8hdNm5eOnLDpG_GSu5NwHaHN&pid=Api&P=0'} backgroundRepeat={'no-repeat'} backgroundPosition={'25px  18px'}  value={search} onChange={handlesearch} className='inputbox' opacity="10" paddingLeft={'60px'} background={'transparent'} fontSize={'20px'} h={'55px'} border={'none'} color="gray.600" borderRadius={'25px'} placeholder='Search...' />
             </Box>
-            <Box position={'absolute'} marginTop={{base:"6%",sm:"3%",md:"1%",lg:"4%",xl:"0","2xl":"0"}}  top="59%" fontSize={'18px'} color={'gray.600'} marginLeft={{base:"27.5%",sm:"33.5%",md:"29.5%",lg:"29.5%",xl:"29.5%","2xl":"29.5%"}} >
+            {/* <Box position={'absolute'} marginTop={{base:"6%",sm:"3%",md:"1%",lg:"4%",xl:"0","2xl":"0"}}  top="59%" fontSize={'18px'} color={'gray.600'} marginLeft={{base:"27.5%",sm:"33.5%",md:"29.5%",lg:"29.5%",xl:"29.5%","2xl":"29.5%"}} >
                 <Search2Icon />
-            </Box>
-            <Box width={{base:"80%",sm:"53%",md:"53%",lg:"53%",xl:"53%","2xl":"53%"}}   marginTop={{base:"60px",sm:"30px",md:"10px",lg:"50px",xl:"0px","2xl":"0px"}}  backgroundColor={'none'} marginLeft={{base:"13%",sm:"23%",md:"23%",lg:"23%",xl:"23%","2xl":"23%"}} color={'white'} display={'flex'} justifyContent={'space-between'}  top={'75%'} position={'absolute'}>
+            </Box> */}
+            <Box width={{base:"80%",sm:"53%",md:"53%",lg:"53%",xl:"53%","2xl":"53%"}}   top={{base:"83%",sm:"80%",md:"78%",lg:"78%",xl:"80%","2xl":"75%"}}  backgroundColor={'none'} marginLeft={{base:"13%",sm:"23%",md:"23%",lg:"23%",xl:"23%","2xl":"23%"}} color={'white'} display={'flex'} justifyContent={'space-between'}  position={'absolute'}>
                 <Heading fontSize={'15px'} fontWeight={'semibold'} marginTop={'1%'}>Trending searches</Heading>
                 <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>landing page</Button>
                 <Button bg="none" _hover={'none'} borderRadius={'25px'} h={'30px'} border={'1px solid white'}>ios</Button>
@@ -107,4 +107,4 @@ const Video = () => {
     )
 }
 
-export default Video
+export default Video;
